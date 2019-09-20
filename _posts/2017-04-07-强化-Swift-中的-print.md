@@ -78,4 +78,4 @@ public func printm(items: Any..., filename: String = #file, function: String = #
 - [《LOG 输出》](http://swifter.tips/log/) - 王巍 (@ONEVCAT)
 
 
-> 本文首次发布于 [Will Wang Blog](https://flyingwzb.github.io), 作者 [@柏荧(Will Wang)](http://github.com/qiubaiying) ,转载请保留原文链接.
+> 本文首次发布于 [Will Wang Blog](https://flyingwzb.github.io), 作者 [@王志彪(Will Wang)](https://github.com/flyingwzb) ,转载请保留原文链接.

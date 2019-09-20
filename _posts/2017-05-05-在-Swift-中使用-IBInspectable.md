@@ -13,7 +13,7 @@ tags:
 ---
 
 
-> 本文首次发布于 [BY Blog](http://qiubaiying.github.io), 作者 [@柏荧(BY)](http://github.com/qiubaiying) ,转载请保留原文链接.
+> 本文首次发布于 [BY Blog](https://flyingwzb.github.io), 作者 [@柏荧(BY)](http://github.com/qiubaiying) ,转载请保留原文链接.
 
 # 前言
 

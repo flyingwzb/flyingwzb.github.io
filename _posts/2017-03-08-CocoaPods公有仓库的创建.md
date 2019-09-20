@@ -12,7 +12,7 @@ tags:
     - Git
 ---
 
-> 本文发布于 [BY Blog](http://qiubaiying.github.io)、[简书](http://www.jianshu.com/p/d2d98298b1b8) 转载请保留链接
+> 本文发布于 [BY Blog](https://flyingwzb.github.io)、[简书](http://www.jianshu.com/p/d2d98298b1b8) 转载请保留链接
 
 # 前言
 
@@ -143,7 +143,7 @@ Pod::Spec.new do |s|
   
   # User
   s.author             = { "BY" => "qiubaiyingios@163.com" } # 作者信息
-  s.social_media_url   = "http://qiubaiying.github.io" # 个人主页
+  s.social_media_url   = "https://flyingwzb.github.io" # 个人主页
 
 end
 ```
@@ -160,7 +160,7 @@ end
 但是很多情况没这么顺利，比如:
 
 	 -> BYPhoneNumTF (1.0.0)
-	    - WARN  | url: There was a problem validating the URL http://qiubaiying.github.io.
+	    - WARN  | url: There was a problem validating the URL https://flyingwzb.github.io.
 	
 	[!] BYPhoneNumTF did not pass validation, due to 1 warning (but you can use `--allow-warnings` to ignore it) and all results apply only to public specs, but you can use `--private` to ignore them if linting the specification for a private pod.
 	[!] The validator for Swift projects uses Swift 3.0 by default, if you are using a different version of swift you can use a `.swift-version` file to set the version for your Pod. For example to use Swift 2.3, run: 

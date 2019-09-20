@@ -480,4 +480,4 @@ pagerNode 是 `ASCollectionNode` 的子类，使用方法与 `UIPageViewControll
 
 本文译自 [AsyncDisplayKit 2.0 Tutorial: Getting Started](https://www.raywenderlich.com/124311/asyncdisplaykit-2-0-tutorial-getting-started) .
 
-由[@柏荧(BY)](http://github.com/qiubaiying)进行翻译,首次发布于 [BY Blog](http://qiubaiying.github.io)，转载请保留原文链接.
+由[@柏荧(BY)](http://github.com/qiubaiying)进行翻译,首次发布于 [BY Blog](https://flyingwzb.github.io)，转载请保留原文链接.

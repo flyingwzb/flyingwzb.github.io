@@ -23,7 +23,7 @@ tags:
 
 但是缺点也很明显，那就是有一些属性没有暴露在 IB 的设置面板中。这时候就要使用 `@IBInspectable` 在 IB 面板中添加这些没有的属性。
 
-关于在 OC 中使用 `IBInspectable` 可以看一下我的 [这篇文章](http://qiubaiying.top/2016/12/01/%E5%BF%AB%E9%80%9F%E6%B7%BB%E5%8A%A0%E5%9C%86%E8%A7%92%E5%92%8C%E6%8F%8F%E8%BE%B9/#高级)
+关于在 OC 中使用 `IBInspectable` 可以看一下我的 [这篇文章](http://flyingd.cn/2016/12/01/%E5%BF%AB%E9%80%9F%E6%B7%BB%E5%8A%A0%E5%9C%86%E8%A7%92%E5%92%8C%E6%8F%8F%E8%BE%B9/#高级)
 
 # 正文
 

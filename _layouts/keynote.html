@@ -8,49 +8,70 @@ layout: default
 
 <!-- Post Header -->
 <style type="text/css">
-    header.intro-header{
+    header.intro-header {
         /*background-image: url('{{ site.baseurl }}/{% if page.header-img %}{{ page.header-img }}{% else %}{{ site.header-img }}{% endif %}')*/
         height: 500px;
         overflow: hidden;
     }
-    header iframe{
+
+    header iframe {
         width: 100%;
         height: 100%;
         border: 0;
     }
-    /* Override Nav Style */
-    {% if page.navcolor == "invert" %}
-        .navbar-custom .nav li a,
-        .navbar-custom .nav li a:hover,
-        .navbar-custom .navbar-brand,
-        .navbar-custom .navbar-brand:hover {color:#777;}
-        .navbar-default .navbar-toggle .icon-bar {background-color:#777;}
 
-    {% endif %}
+    /* Override Nav Style */
+    {
+    %
+    if
+    page
+    .
+    navcolor
+    =
+    =
+    "invert"
+    %
+    }
+    .navbar-custom .nav li a,
+    .navbar-custom .nav li a:hover,
+    .navbar-custom .navbar-brand,
+    .navbar-custom .navbar-brand:hover {
+        color: #777;
+    }
+
+    .navbar-default .navbar-toggle .icon-bar {
+        background-color: #777;
+    }
+
+    {
+    %
+    endif
+    %
+    }
 </style>
-<header class="intro-header" >
+<header class="intro-header">
     <iframe src="{{page.iframe}}"/>
-        <div class="container">
-            <div class="row">
-                <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
-                    <div class="post-heading">
-                        <div class="tags">
-                            {% for tag in page.tags %}
-                            <a class="tag" href="{{ site.baseurl }}/tags/#{{ tag }}" title="{{ tag }}">{{ tag }}</a>
-                            {% endfor %}
-                        </div>
-                        <h1>{{ page.title }}</h1>
-                        {% comment %}
-                            always create a h2 for keeping the margin , Hux
-                        {% endcomment %}
-                        {% comment %} if page.subtitle {% endcomment %}
-                        <h2 class="subheading">{{ page.subtitle }}</h2>
-                        {% comment %} endif {% endcomment %}
-                        <span class="meta">Posted by {% if page.author %}{{ page.author }}{% else %}{{ site.title }}{% endif %} on {{ page.date | date: "%B %-d, %Y" }}</span>
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
+                <div class="post-heading">
+                    <div class="tags">
+                        {% for tag in page.tags %}
+                        <a class="tag" href="{{ site.baseurl }}/tags/#{{ tag }}" title="{{ tag }}">{{ tag }}</a>
+                        {% endfor %}
                     </div>
+                    <h1>{{ page.title }}</h1>
+                    {% comment %}
+                    always create a h2 for keeping the margin , Hux
+                    {% endcomment %}
+                    {% comment %} if page.subtitle {% endcomment %}
+                    <h2 class="subheading">{{ page.subtitle }}</h2>
+                    {% comment %} endif {% endcomment %}
+                    <span class="meta">Posted by {% if page.author %}{{ page.author }}{% else %}{{ site.title }}{% endif %} on {{ page.date | date: "%B %-d, %Y" }}</span>
                 </div>
             </div>
         </div>
+    </div>
     </iframe>
 </header>
 
@@ -64,7 +85,7 @@ layout: default
                 col-lg-8 col-lg-offset-2
                 col-md-10 col-md-offset-1 ">
 
-				{{ content }}
+                {{ content }}
 
                 <hr style="visibility: hidden;">
 
@@ -72,17 +93,19 @@ layout: default
                 <ul class="pager">
                     {% if page.previous.url %}
                     <li class="previous">
-                        <a href="{{ page.previous.url | prepend: site.baseurl | replace: '//', '/' }}" data-toggle="tooltip" data-placement="top" title="{{page.previous.title}}">
-                        Previous<br>
-                        <span>{{page.previous.title}}</span>
+                        <a href="{{ page.previous.url | prepend: site.baseurl | replace: '//', '/' }}"
+                           data-toggle="tooltip" data-placement="top" title="{{page.previous.title}}">
+                            Previous<br>
+                            <span>{{page.previous.title}}</span>
                         </a>
                     </li>
                     {% endif %}
                     {% if page.next.url %}
                     <li class="next">
-                        <a href="{{ page.next.url | prepend: site.baseurl | replace: '//', '/' }}" data-toggle="tooltip" data-placement="top" title="{{page.next.title}}">
-                        Next<br>
-                        <span>{{page.next.title}}</span>
+                        <a href="{{ page.next.url | prepend: site.baseurl | replace: '//', '/' }}" data-toggle="tooltip"
+                           data-placement="top" title="{{page.next.title}}">
+                            Next<br>
+                            <span>{{page.next.title}}</span>
                         </a>
                     </li>
                     {% endif %}
@@ -95,14 +118,14 @@ layout: default
                 <script src="https://unpkg.com/gitalk@latest/dist/gitalk.min.js"></script>
 
                 <div id="gitalk-container"></div>
-                    <script type="text/javascript">
+                <script type="text/javascript">
                     var gitalk = new Gitalk({
-                    clientID: '{{site.gitalk.clientID}}',
-                    clientSecret: '{{site.gitalk.clientSecret}}',
-                    repo: '{{site.gitalk.repo}}',
-                    owner: '{{site.gitalk.owner}}',
-                    admin: ['{{site.gitalk.admin}}'],
-                    id: window.location.pathname,
+                        clientID: '{{site.gitalk.clientID}}',
+                        clientSecret: '{{site.gitalk.clientSecret}}',
+                        repo: '{{site.gitalk.repo}}',
+                        owner: '{{site.gitalk.owner}}',
+                        admin: ['{{site.gitalk.admin}}'],
+                        id: window.location.pathname,
                     });
                     gitalk.render('gitalk-container');
                 </script>
@@ -133,11 +156,11 @@ layout: default
                     <h5><a href="/tags/">FEATURED TAGS</a></h5>
                     <div class="tags">
                         {% for tag in site.tags %}
-                            {% if tag[1].size > {{site.featured-condition-size}} %}
-                                <a href="/tags/#{{ tag[0] }}" title="{{ tag[0] }}" rel="{{ tag[1].size }}">
-                                    {{ tag[0] }}
-                                </a>
-                            {% endif %}
+                        {% if tag[1].size > {{site.featured-condition-size}} %}
+                        <a href="/tags/#{{ tag[0] }}" title="{{ tag[0] }}" rel="{{ tag[1].size }}">
+                            {{ tag[0] }}
+                        </a>
+                        {% endif %}
                         {% endfor %}
                     </div>
                 </section>
@@ -149,7 +172,7 @@ layout: default
                 <h5>FRIENDS</h5>
                 <ul class="list-inline">
                     {% for friend in site.friends %}
-                        <li><a href="{{friend.href}}">{{friend.title}}</a></li>
+                    <li><a href="{{friend.href}}">{{friend.title}}</a></li>
                     {% endfor %}
                 </ul>
                 {% endif %}
@@ -161,26 +184,27 @@ layout: default
 <!-- resize header to fullscreen keynotes -->
 <script>
     var $header = document.getElementsByTagName("header")[0];
-    function resize(){
+
+    function resize() {
         /*
          * leave 85px to both
          * - told/imply users that there has more content below
          * - let user can scroll in mobile device, seeing the keynote-view is unscrollable
          */
-        $header.style.height = (window.innerHeight-85) + 'px';
+        $header.style.height = (window.innerHeight - 85) + 'px';
     }
-    document.addEventListener('DOMContentLoaded', function(){
+
+    document.addEventListener('DOMContentLoaded', function () {
         resize();
-    })
-    window.addEventListener('load', function(){
+    });
+    window.addEventListener('load', function () {
         resize();
-    })
-    window.addEventListener('resize', function(){
+    });
+    window.addEventListener('resize', function () {
         resize();
-    })
+    });
     resize();
 </script>
-
 
 
 {% if site.disqus.enable %}
@@ -191,8 +215,10 @@ layout: default
     var disqus_identifier = "{{page.id}}";
     var disqus_url = "{{site.url}}{{page.url}}";
 
-    (function() {
-        var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
+    (function () {
+        var dsq = document.createElement('script');
+        dsq.type = 'text/javascript';
+        dsq.async = true;
         dsq.src = '//' + disqus_shortname + '.disqus.com/embed.js';
         (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
     })();
@@ -205,21 +231,25 @@ layout: default
 <!-- async load function -->
 <script>
     function async(u, c) {
-      var d = document, t = 'script',
-          o = d.createElement(t),
-          s = d.getElementsByTagName(t)[0];
-      o.src = u;
-      if (c) { o.addEventListener('load', function (e) { c(null, e); }, false); }
-      s.parentNode.insertBefore(o, s);
+        var d = document, t = 'script',
+            o = d.createElement(t),
+            s = d.getElementsByTagName(t)[0];
+        o.src = u;
+        if (c) {
+            o.addEventListener('load', function (e) {
+                c(null, e);
+            }, false);
+        }
+        s.parentNode.insertBefore(o, s);
     }
 </script>
 <!-- anchor-js, Doc:http://bryanbraun.github.io/anchorjs/ -->
 <script>
-    async("//cdnjs.cloudflare.com/ajax/libs/anchor-js/1.1.1/anchor.min.js",function(){
+    async("//cdnjs.cloudflare.com/ajax/libs/anchor-js/1.1.1/anchor.min.js", function () {
         anchors.options = {
-          visible: 'always',
-          placement: 'right',
-          icon: '#'
+            visible: 'always',
+            placement: 'right',
+            icon: '#'
         };
         anchors.add().remove('.intro-header h1').remove('.subheading').remove('.sidebar-container h5');
     })
@@ -227,11 +257,11 @@ layout: default
 <style>
     /* place left on bigger screen */
     @media all and (min-width: 800px) {
-        .anchorjs-link{
+        .anchorjs-link {
             position: absolute;
             left: -0.75em;
             font-size: 1.1em;
-            margin-top : -0.1em;
+            margin-top: -0.1em;
         }
     }
 </style>

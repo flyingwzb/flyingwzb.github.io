@@ -3,7 +3,7 @@ layout:     post
 title:      CocoaPods公有仓库的创建
 subtitle:   手把手教你创建 CocoaPods 公有仓库
 date:       2017-03-08
-author:     BY
+author:     Will Wang
 header-img: img/post-bg-ios10.jpg
 catalog: true
 tags:
@@ -12,7 +12,7 @@ tags:
     - Git
 ---
 
-> 本文发布于 [BY Blog](https://flyingwzb.github.io)、[简书](http://www.jianshu.com/p/d2d98298b1b8) 转载请保留链接
+> 本文发布于 [Will Wang Blog](https://flyingwzb.github.io)、[简书](http://www.jianshu.com/p/d2d98298b1b8) 转载请保留链接
 
 # 前言
 
@@ -142,7 +142,7 @@ Pod::Spec.new do |s|
   # s.dependency   = "AFNetworking" # 依赖库
   
   # User
-  s.author             = { "BY" => "qiubaiyingios@163.com" } # 作者信息
+  s.author             = { "Will Wang" => "wzbcode@163.com" } # 作者信息
   s.social_media_url   = "https://flyingwzb.github.io" # 个人主页
 
 end

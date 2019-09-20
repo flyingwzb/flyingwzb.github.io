@@ -3,7 +3,7 @@ layout:     post
 title:      BYPhoneNumTF
 subtitle:   一个电话号码格式的文本框
 date:       2017-02-04
-author:     BY
+author:     Will Wang
 header-img: img/post-bg-ios9-web.jpg
 catalog: true
 tags:
@@ -199,8 +199,8 @@ tags:
 //
 //  BYPhoneNumTF.h
 //
-//  Created by BY on 16/12/2.
-//  Copyright © 2016年 BY. All rights reserved.
+//  Created by Will Wang on 16/12/2.
+//  Copyright © 2016年 Will Wang. All rights reserved.
 //  电话号码类型的文本输入框，且只能输入数字
 //  输入显示：137 9922 1234 或 137-9922-1234
 //  使用方法：在XIB中的TextField继承该类即可
@@ -224,7 +224,7 @@ tags:
 //  BYPhoneNumTF.m
 //  dev-Jack
 //
-//  Created by BY on 16/12/2.
+//  Created by Will Wang on 16/12/2.
 //  Copyright © 2016年 Jack. All rights reserved.
 //
 

@@ -1,6 +1,6 @@
 {
-  "name": "BY Blog",
-  "short_name": "BY Blog",
+  "name": "Will Wang Blog",
+  "short_name": "Will Wang Blog",
   "description": "A personal blog by engineer",
   "icons": [{
     "src": "icons/pwa_icon_128.png",

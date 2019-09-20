@@ -3,7 +3,7 @@ layout:     post
 title:      Objective-C：Category
 subtitle:   深入解析 Category 的实现原理
 date:       2016-12-21
-author:     BY
+author:     Will Wang
 header-img: img/post-bg-ios9-web.jpg
 catalog: true
 tags:

@@ -3,7 +3,7 @@ layout:     post
 title:      在 Swift 中使用 IBInspectable
 subtitle:   IBInspectable 在 Swift 中的实际应用
 date:       2017-05-05
-author:     BY
+author:     Will Wang
 header-img: img/post-bg-swift.jpg
 catalog: true
 tags:
@@ -13,7 +13,7 @@ tags:
 ---
 
 
-> 本文首次发布于 [BY Blog](https://flyingwzb.github.io), 作者 [@柏荧(BY)](http://github.com/qiubaiying) ,转载请保留原文链接.
+> 本文首次发布于 [Will Wang Blog](https://flyingwzb.github.io), 作者 [@柏荧(Will Wang)](http://github.com/qiubaiying) ,转载请保留原文链接.
 
 # 前言
 

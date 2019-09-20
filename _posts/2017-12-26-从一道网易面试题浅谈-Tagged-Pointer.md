@@ -3,7 +3,7 @@ layout:     post
 title:      从一道网易面试题浅谈 Tagged Pointer
 subtitle:   浅谈 Tagged Pointer
 date:       2017-12-26
-author:     BY
+author:     Will Wang
 header-img: img/post-bg-universe.jpg
 catalog: true
 tags:

@@ -3,7 +3,7 @@
 ![](https://raw.githubusercontent.com/flyingwzb/flyingwzb.github.io/master/img/readme-home.png)
 
 [![Build Status](https://travis-ci.org/flyingwzb/flyingwzb.github.io.svg?branch=master)](https://travis-ci.org/flyingwzb/flyingwzb.github.io)
-[![codebeat badge](https://codebeat.co/badges/5f031df3-f6c1-4ec0-911a-ff6617ca50b9)](https://codebeat.co/projects/github-com-qiubaiying-qiubaiying-github-io-master)
+[![codebeat badge](https://codebeat.co/badges/5f031df3-f6c1-4ec0-911a-ff6617ca50b9)](https://codebeat.co/projects/github-com-flyingwzb-flyingwzb-github-io-master)
 [![GitHub issues](https://img.shields.io/github/issues/flyingwzb/flyingwzb.github.io.svg?style=flat)](https://github.com/flyingwzb/flyingwzb.github.io/issues)
 [![License MIT](https://img.shields.io/badge/license-MIT-blue.svg?style=flat)](https://github.com/home-assistant/home-assistant-iOS/blob/master/LICENSE)
 [![](https://img.shields.io/github/stars/flyingwzb/flyingwzb.github.io.svg?style=social&label=Star)](https://github.com/flyingwzb/flyingwzb.github.io)
@@ -54,11 +54,11 @@
 ```
 # Site settings
 title: Will Wang Blog                    # 你的博客网站标题
-SEOTitle: 柏荧的博客 | Will Wang Blog		# SEO 标题
+SEOTitle: 王志彪的博客 | Will Wang Blog		# SEO 标题
 description: "Hey"	   	   # 随便说点，描述一下
 
 # SNS settings      
-github_username: qiubaiying     # 你的github账号
+github_username: flyingwzb     # 你的github账号
 jianshu_username: e71990ada2fd  # 你的简书ID。
 
 # Build settings
@@ -152,7 +152,7 @@ featured-condition-size: 1     # A tag will be featured if the size of it is mor
 friends: [
     {
         title: "Will Wang Blog",
-        href: "https://qiubaiying.github.io/"
+        href: "https://flyingwzb.github.io/"
     },
     {
         title: "Apple",
@@ -203,7 +203,7 @@ iframe在不同的设备中，将会自动的调整大小。保留内边距是�
 ```
 # 评论系统
 # Disqus（https://disqus.com/）
-disqus_username: qiubaiying
+disqus_username: flyingwzb
 ```
 
 #### Gitalk
@@ -248,7 +248,7 @@ ga_domain: huangxuan.me			# 默认的是 auto, 这里我是自定义了的域名
 
 ### SEO Title
 
-我的博客标题是 **“Will Wang Blog”** 但是我想要在搜索的时候显示 **“柏荧的博客 | Will Wang Blog”** ，这个就需要 SEO Title 来定义了。
+我的博客标题是 **“Will Wang Blog”** 但是我想要在搜索的时候显示 **“王志彪的博客 | Will Wang Blog”** ，这个就需要 SEO Title 来定义了。
 
 其实这个 SEO Title 就是定义了<head><title>标题</title></head>这个里面的东西和多说分享的标题，你可以自行修改的。
 

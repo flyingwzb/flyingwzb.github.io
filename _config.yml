@@ -12,7 +12,7 @@ github_repo: "https://github.com/flyingwzb/flyingwzb.github.io.git" # you code r
 # Sidebar settings
 sidebar: true                           # whether or not using Sidebar.
 sidebar-about-description: "Goals determine what you going to be!"
-sidebar-avatar: /img/willwang.jpg      # use absolute URL, seeing it's used in both `/` and `/about/`
+sidebar-avatar: /img/post-will-wang.jpg      # use absolute URL, seeing it's used in both `/` and `/about/`
 
 
 

@@ -2,7 +2,7 @@
 layout:     post
 title:      Spring Data Solr
 subtitle:   Solr是一个开源搜索平台，用于构建搜索应用程序。
-date:       2019-08-24
+date:       2018-07-15
 author:     Will Wang
 header-img: img/post-bg-article.jpg
 catalog: true

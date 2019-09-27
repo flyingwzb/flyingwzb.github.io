@@ -2,7 +2,7 @@
 layout:     post
 title:      Java实现MySQL的相关配置
 subtitle:   MySQL
-date:       2019-09-11
+date:       2018-08-02
 author:     Will Wang
 header-img: img/post-bg-article.jpg
 catalog: true

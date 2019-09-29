@@ -10,11 +10,13 @@
   }
 }
 .sidebar-container {
-  color: #bfbfbf;
+  /*color: #bfbfbf;*/
+  color: #bf0004;
   font-size: 14px;
 }
 .sidebar-container h5 {
-  color: #808080;
+  /*color: #808080;*/
+  color: #bf0004;
   padding-bottom: 1em;
 }
 .sidebar-container h5 a {
@@ -166,8 +168,7 @@ a {
 }
 a:hover,
 a:focus {
-  /*color: #0085a1;*/
-  color: #EE4000;
+  color: #0085a1;
 }
 a img:hover,
 a img:focus {

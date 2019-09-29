@@ -10,13 +10,11 @@
   }
 }
 .sidebar-container {
-  /*color: #bfbfbf;*/
-  color: #bf0004;
+  color: #bfbfbf;
   font-size: 14px;
 }
 .sidebar-container h5 {
-  /*color: #808080;*/
-  color: #bf0004;
+  color: #808080;
   padding-bottom: 1em;
 }
 .sidebar-container h5 a {

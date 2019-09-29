@@ -14,9 +14,10 @@ description: "自律/坚持/耐心"
             {{ post.subtitle }}
         </h3>
         {% endif %}
-        <div class="post-content-preview">
+        <!--是否展示文章正文前200个字-->
+        <!--<div class="post-content-preview">
             {{ post.content | strip_html | truncate:200 }}
-        </div>
+        </div>-->
     </a>
     <p class="post-meta">
         Posted by {% if post.author %}{{ post.author }}{% else %}{{ site.title }}{% endif %} on {{ post.date | date: "%B %-d, %Y" }}

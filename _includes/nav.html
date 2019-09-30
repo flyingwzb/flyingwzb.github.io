@@ -1,5 +1,9 @@
 <!-- Navigation -->
+{% if page.nav-style == "invert" or page.header-style == "text" %}
+<nav class="navbar navbar-default navbar-custom navbar-fixed-top invert">
+{% else %}
 <nav class="navbar navbar-default navbar-custom navbar-fixed-top">
+{% endif %}
     <div class="container-fluid">
         <!-- Brand and toggle get grouped for better mobile display -->
         <div class="navbar-header page-scroll">
@@ -19,11 +23,13 @@
                     <li>
                         <a href="{{ site.baseurl }}/">Home</a>
                     </li>
-                    {% for page in site.pages %}{% if page.title %}
+                    {% for page in site.pages %}
+                    {% if page.title and page.hide-in-nav != true %}
                     <li>
                         <a href="{{ page.url | prepend: site.baseurl }}">{{ page.title }}</a>
                     </li>
-                    {% endif %}{% endfor %}
+                    {% endif %}
+                    {% endfor %}
                 </ul>
             </div>
         </div>
@@ -41,30 +47,30 @@
     var $collapse = document.querySelector('.navbar-collapse');
 
     var __HuxNav__ = {
-        close: function () {
+        close: function(){
             $navbar.className = " ";
             // wait until animation end.
-            setTimeout(function () {
+            setTimeout(function(){
                 // prevent frequently toggle
-                if ($navbar.className.indexOf('in') < 0) {
+                if($navbar.className.indexOf('in') < 0) {
                     $collapse.style.height = "0px"
                 }
-            }, 400)
+            },400)
         },
-        open: function () {
-            $collapse.style.height = "auto";
+        open: function(){
+            $collapse.style.height = "auto"
             $navbar.className += " in";
         }
-    };
+    }
 
     // Bind Event
-    $toggle.addEventListener('click', function (e) {
+    $toggle.addEventListener('click', function(e){
         if ($navbar.className.indexOf('in') > 0) {
             __HuxNav__.close()
-        } else {
+        }else{
             __HuxNav__.open()
         }
-    });
+    })
 
     /**
      * Since Fastclick is used to delegate 'touchstart' globally

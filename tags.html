@@ -5,7 +5,6 @@ description: keep hungry keep foolish
 header-img: "img/tag-bg.jpg"
 ---
 
-
 <!--
 Credits: this page shamelessly borrowed a lot from:
 https://github.com/kitian616/jekyll-TeXt-theme
@@ -69,13 +68,13 @@ https://github.com/kitian616/jekyll-TeXt-theme
 
 					<div class="post-preview item" data-tags="{{ _tags }}">
 						<a href="{{ _article.url | prepend: site.baseurl }}">
-							<h5 class="post-title">
+							<h2 class="post-title">
 								{{ _article.title }}
-							</h5>
+							</h2>
 							{% if _article.subtitle %}
-							<h6 class="post-subtitle">
+							<h3 class="post-subtitle">
 								{{ _article.subtitle }}
-							</h6>
+							</h3>
 							{% endif %}
 						</a>
 						<hr>
@@ -84,80 +83,4 @@ https://github.com/kitian616/jekyll-TeXt-theme
 			</div>
 		</div>
 	</div>
-
-
-
-
-
-
-
-
-
-
-
-<!--
-
-&lt;!&ndash; Page Header &ndash;&gt;
-<header class="intro-header" style="background-image: url('{{ site.baseurl }}/{% if page.header-img %}{{ page.header-img }}{% else %}{{ site.header-img }}{% endif %}')">
-    <div class="container">
-        <div class="row">
-            <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
-                <div class="site-heading" id="tag-heading">
-                    <h1>{% if page.title %}{{ page.title }}{% else %}{{ site.title }}{% endif %}</h1>
-                    <span class="subheading">{{ page.description }}</span>
-                </div>
-            </div>
-        </div>
-    </div>
-</header>
-
-&lt;!&ndash; Main Content &ndash;&gt;
-<div class="container">
-	<div class="row">
-		<div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
-            &lt;!&ndash; 标签云 &ndash;&gt;
-			<div id='tag_cloud' class="tags">
-				{% for tag in site.tags %}
-				<a href="#{{ tag[0] }}" title="{{ tag[0] }}" rel="{{ tag[1].size }}">{{ tag[0] }}</a>
-				{% endfor %}
-			</div>
-
-            &lt;!&ndash;<blockquote class="tag-comments">
-                标签命名规范：
-                    <li>行业观察、职位、公司优先使用中文</li>
-                    <li>外国产品、术语优先使用英文</li>
-            </blockquote>&ndash;&gt;
-
-            &lt;!&ndash; 标签列表 &ndash;&gt;
-			{% for tag in site.tags %}
-			<div class="one-tag-list">
-			  	<span class="fa fa-tag listing-seperator" id="{{ tag[0] }}">
-                    <span class="tag-text">{{ tag[0] }}</span>
-                </span>
-				{% for post in tag[1] %}
-				  &lt;!&ndash; <li class="listing-item">
-				  <time datetime="{{ post.date | date:"%Y-%m-%d" }}">{{ post.date | date:"%Y-%m-%d" }}</time>
-				  <a href="{{ post.url }}" title="{{ post.title }}">{{ post.title }}</a>
-				  </li> &ndash;&gt;
-				 <div class="post-preview">
-				    <a href="{{ post.url | prepend: site.baseurl }}">
-				        <h2 class="post-title">
-                            {{ post.title }}
-				        </h2>
-				        {% if post.subtitle %}
-				        <h3 class="post-subtitle">
-				            {{ post.subtitle }}
-				        </h3>
-				        {% endif %}
-				    </a>
-				    &lt;!&ndash; <p class="post-meta">{{ post.date | date:"%Y-%m-%d" }}</p> &ndash;&gt;
-				</div>
-				<hr>
-				{% endfor %}
-			</div>
-			{% endfor %}
-
-		</div>
-	</div>
 </div>
--->

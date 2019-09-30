@@ -2,7 +2,7 @@
 layout:     post
 title:      阿里云ECS服务器centos7系统安装MongoDB
 subtitle:   Linux系统软件安装
-date:       2017-12-31
+date:       2019-08-01
 author:     Will Wang
 header-img: img/post-bg-article.jpg
 catalog: true
@@ -30,17 +30,17 @@ tags:
 ###### 下载地址
 - [https://fastdl.mongodb.org/linux/mongodb-linux-x86_64-rhel70-4.0.0.tgz](https://fastdl.mongodb.org/linux/mongodb-linux-x86_64-rhel70-4.0.0.tgz)
 ###### 解压
-```
+```bash
 cd /usr/local/
 
 tar -zxvf mongodb-linux-x86_64-rhel70-4.0.0.tgz 
 ```
 ###### 重命名文件夹
-```
+```bash
 mv mongodb-linux-x86_64-rhel70-4.0.0 mongodb4.0.0
 ```
 ###### 创建日志目录和数据文件目录
-```
+```bash
 cd /usr/local/mongodb4.0.0/
 
 mkdir -p data/logs
@@ -69,26 +69,26 @@ logappend=true
 auth=false
 ```
 ###### 启动MongoDB
-```
+```bash
 cd /usr/local/mongodb4.0.0/bin/
 
 ./mongod --config ../mongodb.conf
 ```
 - 如果启动成功，你会看到以下内容：
-    ```
+    ```bash
     2019-08-30T10:38:27.567+0800 I CONTROL  [main] Automatically disabling TLS 1.0, to force-enable TLS 1.0 specify --sslDisabledProtocols 'none'
     about to fork child process, waiting until server is ready for connections.
     forked process: 32667
     child process started successfully, parent exiting
     ```
 - 通过ps aux |grep mongodb命令查看mongodb进程是否开启
-    ```
+    ```bash
     ps aux |grep mongodb
     root     32667  4.0  2.6 1068176 50476 ?       Sl   10:38   0:00 ./mongod --config ../mongodb.conf
     root     32694  0.0  0.0 112708   988 pts/0    R+   10:38   0:00 grep --color=auto mongodb
     ```
 ###### 进入终端操作数据库
-```
+```bash
 cd /usr/local/mongodb4.0.0/bin/
 
 ./mongo --port=27017

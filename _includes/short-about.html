@@ -10,5 +10,12 @@
     {% endif %}
     <!-- SNS Link -->
     {% include sns-links.html %}
+
+    {% if site.email %}
+    <p>
+      <span class="glyphicon glyphicon-envelope" aria-hidden="true"></span>
+      {{site.email}}
+    </p>
+    {% endif %}
   </div>
 </section>

@@ -37,12 +37,20 @@ description: "自律/坚持/耐心"
 <ul class="pager">
     {% if paginator.previous_page %}
     <li class="previous">
-        <a href="{{ paginator.previous_page_path | prepend: site.baseurl | replace: '//', '/' }}">&larr; Newer Posts</a>
+        <a href="{{ paginator.previous_page_path | prepend: site.baseurl | replace: '//', '/' }}">
+            <span class="glyphicon glyphicon-arrow-left" aria-hidden="true">
+            </span>
+            Newer Posts
+        </a>
     </li>
     {% endif %}
     {% if paginator.next_page %}
     <li class="next">
-        <a href="{{ paginator.next_page_path | prepend: site.baseurl | replace: '//', '/' }}">Older Posts &rarr;</a>
+        <a href="{{ paginator.next_page_path | prepend: site.baseurl | replace: '//', '/' }}">
+            Older Posts
+            <span class="glyphicon glyphicon-arrow-right" aria-hidden="true">
+            </span>
+        </a>
     </li>
     {% endif %}
 </ul>

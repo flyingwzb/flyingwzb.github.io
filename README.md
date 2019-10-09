@@ -51,7 +51,7 @@
 
 你可以通用修改 `_config.yml`文件来轻松的开始搭建自己的博客:
 
-```
+```yaml
 # Site settings
 title: Will Wang Blog                    # 你的博客网站标题
 SEOTitle: 王志彪的博客 | Will Wang Blog	 # SEO 标题
@@ -145,7 +145,7 @@ featured-condition-size: 1     # A tag will be featured if the size of it is mor
 
 设置是在 `_config.yml`文件里面的`Friends`那块，自己加吧。
 
-```
+```yaml
 # Friends
 friends: [
     {
@@ -170,11 +170,11 @@ HTML5幻灯片的排版：
 
 其主要原理是添加一个 `iframe`，在里面加入外部链接。你可以直接写到头文件里面去，详情请见下面的yaml头文件的写法。
 
-```
----
-layout:     keynote
-iframe:     "http://huangxuan.me/js-module-7day/"
----
+```yaml
+    ---
+    layout:     keynote
+    iframe:     "http://huangxuan.me/js-module-7day/"
+    ---
 ```
 
 iframe在不同的设备中，将会自动的调整大小。保留内边距是为了让手机用户可以向下滑动，以及添加更多的内容。
@@ -198,7 +198,7 @@ iframe在不同的设备中，将会自动的调整大小。保留内边距是�
 
 **其次**，你只需要在下面的 yaml 头文件中设置一下就可以了。
 
-```
+```yaml
 # 评论系统
 # Disqus（https://disqus.com/）
 disqus_username: flyingwzb

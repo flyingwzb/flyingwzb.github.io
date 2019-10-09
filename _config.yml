@@ -4,7 +4,7 @@ SEOTitle: 王志彪的博客
 header-img: img/post-bg-index.jpg
 email: wzbcode@163.com
 description: "Every failure is leading towards success."
-keyword: "王志彪的博客, Will Wang, 王志彪, Java, 微服务, 敏捷开发"
+keyword: "王志彪的博客, Will Wang, 王志彪, Java"
 url: "https://flyingwzb.github.io/"          # your host, for absolute URL
 baseurl: ""      # for example, '/blog' if your blog hosted on 'host/blog'
 github_repo: "https://github.com/flyingwzb/flyingwzb.github.io.git" # you code repository
@@ -21,8 +21,8 @@ RSS: false
 weibo_username:     wzb1994
 zhihu_username:     zongguanxian
 github_username:    flyingwzb
-# facebook_username:  baiying.qiu.7
-# jianshu_username:   e71990ada2fd
+# facebook_username:  username
+# jianshu_username:   jianshu_id
 twitter_username:   wzbcode
 
 
@@ -79,13 +79,9 @@ ga_track_id: 'UA-137811562-1'            # Format: UA-xxxxxx-xx
 ga_domain: auto               # 默认的是 auto, 这里我是自定义了的域名，你如果没有自己的域名，需要改成auto
 
 
-
-
-
 # Featured Tags
 featured-tags: true                     # 是否使用首页标签
 featured-condition-size: 1              # 相同标签数量大于这个数，才会出现在首页
-
 
 
 # Progressive Web Apps

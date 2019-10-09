@@ -12,7 +12,7 @@
 
 博客的搭建教程修改自 [Hux](https://github.com/Huxpro/huxpro.github.io) 
  
-更为详细的教程戳这 [《利用GitHubPages快速搭建个人博客》](http://w.flyingd.cn/2018/01/02/%E5%BF%AB%E9%80%9F%E6%90%AD%E5%BB%BA%E4%B8%AA%E4%BA%BA%E5%8D%9A%E5%AE%A2/) 或 [wiki](https://github.com/flyingwzb/flyingwzb.github.io/wiki/%E5%BF%AB%E9%80%9F%E6%90%AD%E5%BB%BA%E4%B8%AA%E4%BA%BA%E5%8D%9A%E5%AE%A2)
+更为详细的教程戳这 [《利用GitHubPages快速搭建个人博客》](https://flyingwzb.github.io/2018/01/02/%E5%BF%AB%E9%80%9F%E6%90%AD%E5%BB%BA%E4%B8%AA%E4%BA%BA%E5%8D%9A%E5%AE%A2/) 或 [wiki](https://github.com/flyingwzb/flyingwzb.github.io/wiki/%E5%BF%AB%E9%80%9F%E6%90%AD%E5%BB%BA%E4%B8%AA%E4%BA%BA%E5%8D%9A%E5%AE%A2)
 
 >
 ### [查看博客戳这里 👆](https://flyingwzb.github.io)
@@ -212,7 +212,7 @@ disqus_username: flyingwzb
 
 **使用：**
 
-参考我的这篇文章：[《为博客添加 Gitalk 评论插件》](https://flyingwzb.github.io/2018/12/19/%E4%B8%BA%E5%8D%9A%E5%AE%A2%E6%B7%BB%E5%8A%A0-Gitalk-%E8%AF%84%E8%AE%BA%E6%8F%92%E4%BB%B6/)
+参考我的这篇文章：[《为博客添加 Gitalk 评论插件》](https://flyingwzb.github.io/2018/01/04/%E4%B8%BA%E5%8D%9A%E5%AE%A2%E6%B7%BB%E5%8A%A0Gitalk%E8%AF%84%E8%AE%BA%E6%8F%92%E4%BB%B6/)
 
 
 ### Analytics

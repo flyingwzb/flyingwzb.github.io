@@ -63,8 +63,8 @@
     var PaymentUtils = window['PaymentUtils'] = {};
     PaymentUtils.show = function () {
         $("#PAY_" + id).show();
-    }
+    };
     PaymentUtils.hide = function () {
         $("#PAY_" + id).hide();
-    }
+    };
 });

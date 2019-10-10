@@ -100,11 +100,13 @@ layout: default
     </div>
 </article>
 
+
+<!-- 下面的js地址修改和上一步保存的js地址一致 -->
+<script type="text/javascript" src='{{ "/js/ds.js" | prepend: site.baseurl }}'></script>
+
 <div class="ds-reward-stl">
     <button id="dsRewardBtn" onclick="PaymentUtils.show();">赏</button>
 </div>
-<!-- 下面的js地址修改和上一步保存的js地址一致 -->
-<script type="text/javascript" src='{{ "/js/ds.js" | prepend: site.baseurl }}'></script>
 
 <!-- add support for mathjax by voleking-->
 {% if page.mathjax %}

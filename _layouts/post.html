@@ -100,18 +100,11 @@ layout: default
     </div>
 </article>
 
-<script>
-    window.tctipConfig = {
-        staticPrefix:  "http://static.tctip.com",
-        buttonImageId: 1,
-        buttonTip: "Will Wang",
-        list:{
-            alipay: {qrimg: "https://github.com/flyingwzb/flyingwzb.github.io/blob/master/img/willwang/Alipay.jpg?raw=true"},
-            weixin:{qrimg: "https://github.com/flyingwzb/flyingwzb.github.io/blob/master/img/willwang/wxpay.png?raw=true"},
-        }
-    };
-</script>
-<script src="http://static.tctip.com/js/tctip.min.js"></script>
+<div class="ds-reward-stl">
+    <button id="dsRewardBtn" onclick="PaymentUtils.show();">赏</button>
+</div>
+<!-- 下面的js地址修改和上一步保存的js地址一致 -->
+<script type="text/javascript" src="/js/ds.js"></script>
 
 <!-- add support for mathjax by voleking-->
 {% if page.mathjax %}

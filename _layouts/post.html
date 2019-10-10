@@ -100,6 +100,18 @@ layout: default
     </div>
 </article>
 
+<script>
+    window.tctipConfig = {
+        staticPrefix:  "",
+        buttonImageId: 1,
+        buttonTip: "w",
+        list:{
+            alipay: {qrimg: "https://github.com/flyingwzb/flyingwzb.github.io/blob/master/img/willwang/Alipay.jpg?raw=true"},
+            weixin:{qrimg: "https://github.com/flyingwzb/flyingwzb.github.io/blob/master/img/willwang/wxpay.jpg?raw=true"},
+        }
+    };
+</script>
+<script src='{{ "/js/ds.js" | prepend: site.baseurl }}'></script>
 
 <!-- add support for mathjax by voleking-->
 {% if page.mathjax %}

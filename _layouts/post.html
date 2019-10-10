@@ -100,18 +100,25 @@ layout: default
     </div>
 </article>
 
+<script src='{{ "/js/ds.js" | prepend: site.baseurl }}'></script>
 <script>
-    window.tctipConfig = {
-        staticPrefix:  "http://static.tctip.com",
-        buttonImageId: 1,
-        buttonTip: "w",
-        list:{
-            alipay: {qrimg: "https://github.com/flyingwzb/flyingwzb.github.io/blob/master/img/willwang/Alipay.jpg?raw=true"},
-            weixin:{qrimg: "https://github.com/flyingwzb/flyingwzb.github.io/blob/master/img/willwang/wxpay.jpg?raw=true"},
-        }
-    };
+    new tctip({
+        top: '20%',
+        button: {
+            id: 9,
+            type: 'zanzhu'
+        },
+        list: [
+            {
+                type: 'alipay',
+                qrImg: 'https://github.com/flyingwzb/flyingwzb.github.io/blob/master/img/willwang/Alipay.jpg?raw=true'
+            }, {
+                type: 'wechat',
+                qrImg: 'https://github.com/flyingwzb/flyingwzb.github.io/blob/master/img/willwang/wxpay.png?raw=true'
+            }
+        ]
+    }).init()
 </script>
-<script src="http://static.tctip.com/js/tctip.min.js"></script>
 
 <!-- add support for mathjax by voleking-->
 {% if page.mathjax %}

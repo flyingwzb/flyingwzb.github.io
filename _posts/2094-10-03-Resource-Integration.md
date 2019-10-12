@@ -2,7 +2,7 @@
 layout:     post
 title:      资源整合
 subtitle:   收藏有关学习、工作、生活的优质资源，提高学习工作效率和生活品质
-date:       2019-09-27
+date:       2094-10-03
 author:     Will Wang
 header-img: img/post-bg-article.jpg
 catalog: true

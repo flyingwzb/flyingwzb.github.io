@@ -443,12 +443,12 @@
                 alipay: {
                     icon: __webpack_require__(30),
                     name: '支付宝',
-                    desc: '支付宝打赏'
+                    desc: '支付宝打赏💰'
                 },
                 wechat: {
                     icon: __webpack_require__(33),
                     name: '微信',
-                    desc: '微信打赏'
+                    desc: '微信打赏💰'
                 },
                 bitcoin: {
                     icon: __webpack_require__(31),

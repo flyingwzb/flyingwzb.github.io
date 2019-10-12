@@ -2049,7 +2049,7 @@
                         this.createDom(_defineProperty({
                             href: 'https://flyingwzb.github.io/',
                             target: '_blank'
-                        }, _dom.textKey, '了解更多'), 'a');
+                        }, _dom.textKey, '了解更多♥'), 'a');
                     }
                 }]);
 

@@ -1903,7 +1903,7 @@
                     value: function genDom() {
                         this.createDom(_defineProperty({
                             className: 'tctip-qr-title'
-                        }, _dom.textKey, '扫描二维码打赏'), 'p');
+                        }, _dom.textKey, 'buy me a coffee.🍷'), 'p');
                     }
                 }]);
 
@@ -2105,7 +2105,7 @@
                     value: function genDom() {
                         this.createDom(_defineProperty({
                             className: 'tctip-title'
-                        }, _dom.textKey, '喜欢请打赏'), 'h1');
+                        }, _dom.textKey, '喜欢就请我喝一杯🍹'), 'h1');
                     }
                 }]);
 

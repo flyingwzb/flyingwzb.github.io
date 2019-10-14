@@ -103,3 +103,15 @@ Dependence Inversion Principle，简称是DIP
 #### 迪米特法则
 Law of Demeter， LoD
 
+
+
+
+
+
+
+
+
+
+
+
+#### 开闭原则

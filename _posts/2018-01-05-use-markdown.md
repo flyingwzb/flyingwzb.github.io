@@ -10,7 +10,7 @@ tags:
     - Markdown
 ---
 
-### TOP{#index}
+### TOP{#top}
 
 
 *斜体* _斜体_
@@ -259,4 +259,4 @@ Markdown
 <font color="purple">紫色</font>
 
 
-[回到顶部](#index)
+[回到顶部](#top)

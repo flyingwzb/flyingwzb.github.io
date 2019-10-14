@@ -58,10 +58,8 @@ https://github.com/kitian616/jekyll-TeXt-theme
                 {% comment %} group by year {% endcomment %}
                 {%- assign _currentdate = _article.date | date: '%Y' -%}
                 {%- if _currentdate != _date -%}
-                {%- unless forloop.first -%}
+                {%- unless forloop.first -%}</section>{%- endunless -%}
                 <section>
-                    {%- endunless -%}
-                </section>
 				<span class="fa listing-seperator">
 					<span class="tag-text">{{ _currentdate }}</span>
 				</span>
@@ -85,7 +83,7 @@ https://github.com/kitian616/jekyll-TeXt-theme
             </div>
         </div>
     </div>
-</div>
+
 
 
 <!-- 文章打赏功能 支持支付宝、微信打赏-->

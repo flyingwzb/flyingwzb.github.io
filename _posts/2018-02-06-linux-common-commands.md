@@ -76,13 +76,12 @@ tags:
 	- `ls -l /opt |grep "^d"|wc -l`，统计 opt 目录下目录的个数，不会递归统计
 	- `ls -lR /opt |grep "^d"|wc -l`，统计 opt 目录下目录的个数，会递归统计
 	- `ls -lR /opt |grep "js"|wc -l`，统计 opt 目录下 js 文件的个数，会递归统计
-	- `ls -l`，列出目录下所有文件的权限、所有者、文件大小、修改时间及名称（也就是显示详细信息，不显示隐藏文件）。显示出来的效果如下：
-    
-``` nginx
--rwxr-xr-x. 1 root root 4096 3月 26 10:57，其中最前面的 - 表示这是一个普通文件
-lrwxrwxrwx. 1 root root 4096 3月 26 10:57，其中最前面的 l 表示这是一个链接文件，类似 Windows 的快捷方式
-drwxr-xr-x. 5 root root 4096 3月 26 10:57，其中最前面的 d 表示这是一个目录
-```
+	- `ls -l`，列出目录下所有文件的权限、所有者、文件大小、修改时间及名称（也就是显示详细信息，不显示隐藏文件）。显示出来的效果如下：  
+        ```bash
+        -rwxr-xr-x. 1 root root 4096 3月 26 10:57  其中最前面的 - 表示这是一个普通文件
+        lrwxrwxrwx. 1 root root 4096 3月 26 10:57  其中最前面的 l 表示这是一个链接文件  类似 Windows 的快捷方式
+        drwxr-xr-x. 5 root root 4096 3月 26 10:57  其中最前面的 d 表示这是一个目录
+        ```
 
 - `cd`，目录切换
 	- `cd ..`，改变目录位置至当前目录的父目录(上级目录)。
@@ -150,6 +149,7 @@ drwxr-xr-x. 5 root root 4096 3月 26 10:57，其中最前面的 d 表示这是�
 - `tail`
 	- `tail -n 10 spring.ini`，查看当前文件的后 10 行内容
 	- `tail -200f 文件名`，查看文件被更新的新内容尾 200 行，如果文件还有在新增可以动态查看到（一般用于查看日记文件）
+
 
 ## 用户、权限-相关命令
 
@@ -222,9 +222,35 @@ drwxr-xr-x. 5 root root 4096 3月 26 10:57，其中最前面的 d 表示这是�
 - 后台批量下载：`wget -b -c -i /opt/download.txt`，一个下载地址一行
 
 
+## 其他常用命令
+
+- 编辑 hosts 文件：`vim /etc/hosts`，添加内容格式：`127.0.0.1 www.youmeek.com`
+- RPM 文件操作命令：
+	- 安装
+		- `rpm -i example.rpm`，安装 example.rpm 包
+		- `rpm -iv example.rpm`，安装 example.rpm 包并在安装过程中显示正在安装的文件信息
+		- `rpm -ivh example.rpm`，安装 example.rpm 包并在安装过程中显示正在安装的文件信息及安装进度
+	- 查询
+		- `rpm -qa | grep jdk`，查看 jdk 是否被安装
+		- `rpm -ql jdk`，查看 jdk 是否被安装
+	- 卸载
+		- `rpm -e jdk`，卸载 jdk（一般卸载的时候都要先用 rpm -qa 看下整个软件的全名）
+- YUM 软件管理：
+	- `yum install -y httpd`，安装 apache
+	- `yum remove -y httpd`，卸载 apache
+	- `yum info -y httpd`，查看 apache 版本信息
+	- `yum list --showduplicates httpd`，查看可以安装的版本
+	- `yum install httpd-查询到的版本号`，安装指定版本
+	- 更多命令可以看：<http://man.linuxde.net/yum>
+- 查看某个配置文件，排除掉里面以 # 开头的注释内容：
+    - `grep '^[^#]' /etc/openvpn/server.conf`
+- 查看某个配置文件，排除掉里面以 # 开头和 ; 开头的注释内容：
+    - `grep '^[^#;]' /etc/openvpn/server.conf`
+
 
 ## 资料
 
 - <http://wenku.baidu.com/view/1ad19bd226fff705cc170af3.html>
 - <http://blog.csdn.net/nzing/article/details/9166057>
 - <http://linuxtools-rst.readthedocs.io/zh_CN/latest/tool/wget.html>
+- <https://www.jianshu.com/p/180fb11a5b96>

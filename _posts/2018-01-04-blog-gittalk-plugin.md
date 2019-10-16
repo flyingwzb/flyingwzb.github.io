@@ -1,7 +1,7 @@
 ---
 layout:     post
 title:      为博客添加 Gitalk 评论插件
-subtitle:   Will Wang Blog 添加 Gitalk 的评论插件了
+subtitle:   Will Wang`s Blog 添加 Gitalk 的评论插件了
 date:       2018-01-04
 author:     Will Wang
 header-img: img/post-bg-universe.jpg
@@ -9,7 +9,6 @@ catalog: true
 tags:
     - Blog
 ---
-
 
 ## 前言
 
@@ -74,7 +73,7 @@ Gitalk 是一个利用 Github API,基于 Github issue 和 Preact 开发的评论
 
 我们需要关心的就是配置下面几个参数：
 
-```javascript 1.8
+```yaml
 clientID: `Github Application clientID`,
 clientSecret: `Github Application clientSecret`,
 repo: `Github 仓库名`,//存储你评论 issue 的 Github 仓库名（建议直接用 GitHub Page 的仓库名）
@@ -82,7 +81,7 @@ owner: 'Github 用户名',
 admin: ['Github 用户名'], //这个仓库的管理员，可以有多个，用数组表示，一般写自己,
 id: 'window.location.pathname', //页面的唯一标识，gitalk 会根据这个标识自动创建的issue的标签,我们使用页面的相对路径作为标识
 ```
-当然，还有其他很多参数，有兴趣的话可以 [ 点这里](https://github.com/gitalk/gitalk#options)。
+当然，还有其他很多参数，有兴趣的话可以 [点这里](https://github.com/gitalk/gitalk#options)。
 
 比如我就增加了这个全屏遮罩的参数。
 
@@ -114,7 +113,7 @@ Gitalk 需要一个 **Github Application**，[点击这里申请](https://github
 
 ![](https://ws4.sinaimg.cn/large/006tKfTcgy1fmm8a0i0jkj30rr0ct42t.jpg)
 
-当然，你也可以手动创建issue作为 gitalk评论容器。只要有 `Gitalk` 标签 和 `id` 对应标签就可以。比我我自己创建的 [About issue](https://github.com/flyingwzb/flyingwzb.github.io/issues/38) 。
+当然，你也可以手动创建issue作为 gitalk评论容器。只要有 `Gitalk` 标签 和 `id` 对应标签就可以。比我我自己创建的 [About issue](https://github.com/flyingwzb/flyingwzb.github.io/issues/2) 。
 
 # 结语
 

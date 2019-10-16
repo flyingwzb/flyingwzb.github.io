@@ -1,7 +1,7 @@
 ---
 layout:     post
 title:      我的书单
-subtitle:   影响程序员一生的书单
+subtitle:   一日不读书，胸臆无佳想；一月不读书，耳目失清爽。
 date:       2018-05-11
 author:     Will Wang
 header-img: img/post-bg-article.jpg

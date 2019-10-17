@@ -10,7 +10,9 @@ tags:
     - Markdown
 ---
 
-### TOP{#top}
+### TOP
+
+跳转到[目录](#目录)
 
 
 *斜体* _斜体_
@@ -112,7 +114,7 @@ tags:
 [网站]:https://github.com
 ```
 
-<font color="red">--------------------------------------</font>
+<font color="purple">--------------------------------------</font>
 
 <http://example.com/>
 
@@ -128,8 +130,7 @@ tags:
 
 <font color="red">--------------------------------------</font>
 
-## 0. 目录{#index}
-跳转到[目录](#index)
+## 目录
 
 ```markdown
 ## 0. 目录{#index}
@@ -204,7 +205,7 @@ Markdown
 悄悄的我走了， 正如我悄悄的来； 我挥一挥衣袖， 不带走一片云彩。
 ```
 
-<font color="red">--------------------------------------</font>
+<font color="blue">--------------------------------------</font>
 
 * 阅读的方法:
 
@@ -220,7 +221,7 @@ Markdown
     > 打开电灯。
 ```
 
-<font color="red">--------------------------------------</font>
+<font color="green">--------------------------------------</font>
 
 美丽花儿： 
 ![美丽花儿](http://ww2.sinaimg.cn/large/56d258bdjw1eugeubg8ujj21kw16odn6.jpg "美丽花儿")
@@ -230,7 +231,7 @@ Markdown
 ![美丽花儿](http://ww2.sinaimg.cn/large/56d258bdjw1eugeubg8ujj21kw16odn6.jpg "美丽花儿")
 ```
 
-<font color="red">--------------------------------------</font>
+<font color="yellow">--------------------------------------</font>
 
 美丽花儿：
 ![美丽花儿][flower]
@@ -244,7 +245,7 @@ Markdown
 [flower]:http://ww2.sinaimg.cn/large/56d258bdjw1eugeubg8ujj21kw16odn6.jpg  "美丽花儿"
 ```
 
-<font color="red">--------------------------------------</font>
+<font color="purple">--------------------------------------</font>
 
 
 使用 Markdown[^1]可以效率的书写文档, 直接转换成 HTML[^2], 你可以使用 Leanote[^Le] 编辑器进行书写。
@@ -262,15 +263,4 @@ Markdown
 ```
 
 
-<font color="red">红色</font>
-
-<font color="blue">蓝色</font>
-
-<font color="green">绿色</font>
-
-<font color="yellow">黄色</font>
-
-<font color="purple">紫色</font>
-
-
-[回到顶部](#top)
+[回到顶部](#TOP)

@@ -1,7 +1,7 @@
 ---
 layout:     post
 title:      Git飞行规则(Flight Rules)
-subtitle:   不适合阅读的整理的一些个人常用的 Git 指令
+subtitle:   这是一篇给宇航员（这里就是指使用Git的程序员们）的指南，用来指导问题出现后的应对之法。
 date:       2018-03-03
 author:     Will Wang
 header-img: img/post-bg-article.jpg

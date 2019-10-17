@@ -77,11 +77,11 @@ tags:
 	- 需要用到QueryParser（单一字段的查询解析器）解析出Query对象
 	- TopDocs topDocs = indexSearcher.search(query, 10);
 - 第三步：解析查询结果
-    ```java
+    ```
     //得分文档集合
 	ScoreDoc[] scoreDocs = topDocs.scoreDocs;
     ```
-```java
+```
 queryParser：先分词再查询
 Query query = queryParser.parse("lucene是一个Java开发的全文检索工具包");	
 TermQuery：词条精准查询

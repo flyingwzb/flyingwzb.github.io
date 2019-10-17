@@ -19,7 +19,6 @@ tags:
 1. [http://www.hollischuang.com/](http://www.hollischuang.com/)
 1. [美团技术团队](https://tech.meituan.com/)
 1. [后端架构师技术图谱](https://github.com/xingshaocheng/architect-awesome)
-1. [IDEA启蒙引导者](http://www.youmeek.com/)
 1. [芋道源码](http://www.iocoder.cn/?vip)
 1. [Spring Boot 中文索引](http://springboot.fun/)
 1. [翟永超](http://blog.didispace.com/)

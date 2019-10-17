@@ -1,6 +1,6 @@
 ---
 layout:     post
-title:      面试问题总结
+title:      面试总结
 subtitle:   聊一聊面经
 date:       2019-03-01
 author:     Will Wang

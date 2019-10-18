@@ -312,8 +312,158 @@ tags:
 - Define the skeleton of an algorithm in an operation,deferring some steps to subclasses.TemplateMethod lets subclasses redefine certain steps of an algorithm without changing the algorithm's structure.
 - 定义一个操作中的算法的框架，而将一些步骤延迟到子类中。使得子类可以不改变一个算法的结构即可重定义该算法的某些特定步骤。
 
+##### 通用代码
+- 抽象模板类
+    ```java
+    public abstract class AbstractClass {
+        //基本方法
+        protected abstract void doSomething();
+        //基本方法
+        protected abstract void doAnything();
+        //模板方法
+        public void templateMethod(){
+            /*
+            * 调用基本方法， 完成相关的逻辑
+            */
+            this.doAnything();
+            this.doSomething();
+        }
+    }
+    ```
+- 具体模板类
+    ```java
+    public class ConcreteClass1 extends AbstractClass {
+        //实现基本方法
+        protected void doAnything() {
+        //业务逻辑处理
+        }
+        protected void doSomething() {
+        //业务逻辑处理
+        }
+    }
+  
+    public class ConcreteClass2 extends AbstractClass {
+        //实现基本方法
+        protected void doAnything() {
+        //业务逻辑处理
+        }
+        protected void doSomething() {
+        //业务逻辑处理
+        }
+    }
+    ```
+- 场景类
+    ```java
+    public class Client {
+        public static void main(String[] args) {
+            AbstractClass class1 = new ConcreteClass1();
+            AbstractClass class2 = new ConcreteClass2();
+            //调用模板方法
+            class1.templateMethod();
+            class2.templateMethod();
+        }
+    }
+    ```
+- 抽象模板中的基本方法尽量设计为protected类型，符合迪米特法则，不需要暴露的属性或方法尽量不要设置为protected类型。实现类若非必要，尽量不要扩大父类中的访问权限。
+
+##### 模板方法模式的优点
+1. 封装不变部分，扩展可变部分
+1. 提取公共部分代码，便于维护
+1. 行为由父类控制，子类实现
+
+##### 模板方法模式的缺点
+- 按照我们的设计习惯，抽象类负责声明最抽象、最一般的事物属性和方法，实现类完成具体的事物属性和方法。但是模板方法模式却颠倒了，抽象类定义了部分抽象方法，由子类实现，子类执行的结果影响了父类的结果，也就是子类对父类产生了影响，这在复杂的项目中，会带来代码阅读的难度，而且也会让新手产生不适感。
+
+##### 模板方法模式的使用场景
+1. 多个子类有公有的方法，并且逻辑基本相同时。
+1. 重要、复杂的算法，可以把核心算法设计为模板方法，周边的相关细节功能则由各个子类实现。
+1. 重构时，模板方法模式是一个经常使用的模式，把相同的代码抽取到父类中，然后通过钩子函数（见“模板方法模式的扩展”）约束其行为。
+
 
 #### 建造者模式
+建造者模式（Builder Pattern）也叫做生成器模式
+##### 定义
+- Separate the construction of a complex object from its representation so that the same construction process can create different representations.
+- 将一个复杂对象的构建与它的表示分离，使得同样的构建过程可以创建不同的表示。
+
+##### 注意
+- 如果你要调用类中的成员变量或方法，需要在前面加上this关键字，不加也能正常地跑起来，但是不清晰，加上this关键字，我就是要调用本类中的成员变量或方法，而不是本方法中的一个变量。
+- 还有super方法也是一样，是调用父类的成员变量或者方法，那就加上这个关键字，不要省略，这要靠约束，还有就是程序员的自觉性。
+- 作为一个系统分析师或是技术经理一定要告诉项目成员，ArrayList和HashMap如果定义成类的成员变量，那你在方法中的调用一定要做一个clear的动作，以防止数据混乱。
+
+##### 建造者模式的通用类图
+- Product产品类
+    - 通常是实现了模板方法模式，也就是有模板方法和基本方法
+- Builder抽象建造者
+    - 规范产品的组建，一般是由子类实现。
+- ConcreteBuilder具体建造者
+    - 实现抽象类定义的所有方法，并且返回一个组建好的对象。
+- Director导演类
+    - 负责安排已有模块的顺序， 然后告诉Builder开始建造
+
+##### 通用源代码
+- 产品类
+    ```java
+    public class Product {
+        public void doSomething(){
+        //独立业务处理
+        }
+    }
+    ```
+- 抽象建造者
+    ```java
+    public abstract class Builder {
+        //设置产品的不同部分， 以获得不同的产品
+        public abstract void setPart();
+        //建造产品
+        public abstract Product buildProduct();
+    }
+    ```
+- 具体建造者
+    ```java
+    public class ConcreteProduct extends Builder {
+        private Product product = new Product();
+        //设置产品零件
+        public void setPart(){
+            /*
+            * 产品类内的逻辑处理
+            */
+        }
+        //组建一个产品
+        public Product buildProduct() {
+            return product;
+        }
+    }
+    ```
+- 导演类
+    ```java
+    public class Director {
+        private Builder builder = new ConcreteProduct();
+        //构建不同的产品
+        public Product getAProduct(){
+            builder.setPart();
+            /*
+            * 设置不同的零件， 产生不同的产品
+            */
+            return builder.buildProduct();
+        }
+    }
+    ```
+
+##### 建造者模式的优点
+- 封装性
+- 建造者独立，容易扩展
+- 便于控制细节风险
+
+##### 建造者模式的使用场景
+1. 相同的方法，不同的执行顺序，产生不同的事件结果时，可以采用建造者模式。
+1. 多个部件或零件，都可以装配到一个对象中，但是产生的运行结果又不相同时，则可以使用该模式。
+1. 产品类非常复杂，或者产品类中的调用顺序不同产生了不同的效能，这个时候使用建造者模式非常合适。
+1. 在对象创建过程中会使用到系统中的一些其他对象，这些对象在产品对象的创建过程中不易得到时，也可以采用建造者模式封装该对象的创建过程。该种场景只能是一个补偿方法，因为一个对象不容易获得，而在设计阶段竟然没有发觉，而要通过创建者模式柔化创建过程，本身已经违反设计的最初目标。
+
+##### 建造者模式和工厂模式的区别
+- 建造者模式最主要的功能是基本方法的调用顺序安排，也就是这些基本方法已经实现了，通俗地说就是零件的装配，顺序不同产生的对象也不同；
+- 而工厂方法则重点是创建，创建零件是它的主要职责，组装顺序则不是它关心的。
 
 
 #### 代理模式

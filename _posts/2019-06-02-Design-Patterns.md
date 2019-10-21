@@ -467,12 +467,184 @@ tags:
 
 
 #### 代理模式
+代理模式（Proxy Pattern） 是一个使用率非常高的模式
+##### 定义
+- Provide a surrogate or placeholder for another object to control access to it.
+- 为其他对象提供一种代理以控制对这个对象的访问。
+- 代理模式也叫做委托模式，它是一项基本设计技巧。
+
+##### 代理模式的优点
+- 职责清晰
+- 高扩展性
+- 智能化
+
+##### 代理模式的扩展
+- 普通代理
+    - 普通代理，它的要求就是客户端只能访问代理角色，而不能访问真实角色，这是比较简单的。
+    - 普通代理模式的约束问题，尽量通过团队内的编程规范类约束，因为每一个主题类是可被重用的和可维护的，使用技术约束的方式对系统维护是一种非常不利的因素。
+- 强制代理
+    - 强制代理的概念就是要从真实角色查找到代理角色，不允许直接访问真实角色。
+    - 高层模块只要调用getProxy就可以访问真实角色的所有方法，它根本就不需要产生一个代理出来，代理的管理已经由真实角色自己完成。
+- 代理是有个性的
+    - 一个类可以实现多个接口，完成不同任务的整合。
+    - 也就是说代理类不仅仅可以实现主题接口，也可以实现其他接口完成不同的任务，而且代理的目的是在目标对象方法的基础上作增强，这种增强的本质通常就是对目标对象的方法进行拦截和过滤。
+    - 代理类可以为真实角色预处理消息、过滤消息、消息转发、事后处理消息等功能。
+    - 当然一个代理类，可以代理多个真实角色，并且真实角色之间可以有耦合关系
+- 动态代理
+    - 动态代理的主要意图就是解决我们常说的“审计”问题，也就是横切面编程，在不改变我们已有代码结构的情况下增强或控制对象的行为。
+    - 要实现动态代理的首要条件是：被代理类必须实现一个接口
 
 
 #### 原型模式
+原型模式（Prototype Pattern）的简单程度仅次于单例模式和迭代器模式。
+##### 定义
+- Specify the kinds of objects to create using a prototypical instance,and create new objects by copying this prototype.
+- 用原型实例指定创建对象的种类，并且通过拷贝这些原型创建新的对象。
 
+##### 原型模式的优点
+- 性能优良
+- 逃避构造函数的约束
+
+##### 原型模式的使用场景
+- 资源优化场景
+    - 类初始化需要消化非常多的资源，这个资源包括数据、硬件资源等。
+- 性能和安全要求的场景
+    - 通过new产生一个对象需要非常繁琐的数据准备或访问权限，则可以使用原型模式。
+- 一个对象多个修改者的场景
+    - 一个对象需要提供给其他对象访问，而且各个调用者可能都需要修改其值时，可以考虑使用原型模式拷贝多个对象供调用者使用。
+
+##### 原型模式的注意事项
+- 构造函数不会被执行
+- 浅拷贝和深拷贝
+    - Object类提供的方法clone只是拷贝本对象，其对象内部的数组、引用对象等都不拷贝，还是指向原生对象的内部元素地址，这种拷贝就叫做浅拷贝。
+    - 使用原型模式时，引用的成员变量必须满足两个条件才不会被拷贝：一是类的成员变量，而不是方法内变量；二是必须是一个可变的引用对象，而不是一个原始类型或不可变对象。
+    - 深拷贝和浅拷贝建议不要混合使用，特别是在涉及类的继承时，父类有多个引用的情况就非常复杂，建议的方案是深拷贝和浅拷贝分开实现。
+- 对象的clone与对象内的final关键字是有冲突的
+    - 要使用clone方法，类的成员变量上不要增加final关键字。
+    
 
 #### 中介者模式
+##### 定义
+- Define an object that encapsulates how a set of objects interact.Mediator promotes loose coupling by keeping objects from referring to each other explicitly,and it lets you vary their interaction independently.
+- 用一个中介对象封装一系列的对象交互，中介者使各对象不需要显示地相互作用，从而使其耦合松散，而且可以独立地改变它们之间的交互。
+
+##### 中介者模式通用类图
+- Mediator 抽象中介者角色
+    - 抽象中介者角色定义统一的接口，用于各同事角色之间的通信。
+- Concrete Mediator 具体中介者角色
+    - 具体中介者角色通过协调各同事角色实现协作行为，因此它必须依赖于各个同事角色。
+- Colleague 同事角色
+    - 每一个同事角色都知道中介者角色，而且与其他的同事角色通信的时候，一定要通过中介者角色协作。
+    - 每个同事类的行为分为两种：一种是同事本身的行为，比如改变对象本身的状态，处理自己的行为等，这种行为叫做自发行为（Self-Method），与其他的同事类或中介者没有任何的依赖；
+    - 第二种是必须依赖中介者才能完成的行为，叫做依赖方法（DepMethod）。
+
+##### 通用源码
+- 抽象中介者
+    ```java
+    public abstract class Mediator {
+        //定义同事类
+        protected ConcreteColleague1 c1;
+        protected ConcreteColleague2 c2;
+        //通过getter/setter方法把同事类注入进来
+        public ConcreteColleague1 getC1() {
+            return c1;
+        }
+        public void setC1(ConcreteColleague1 c1) {
+            this.c1 = c1;
+        }
+        public ConcreteColleague2 getC2() {
+            return c2;
+        }
+        public void setC2(ConcreteColleague2 c2) {
+            this.c2 = c2;
+        }
+        //中介者模式的业务逻辑
+        public abstract void doSomething1();
+        public abstract void doSomething2();
+    }
+    ```
+- 通用中介者
+    ```java
+    public class ConcreteMediator extends Mediator {
+        @Override
+        public void doSomething1() {
+            //调用同事类的方法， 只要是public方法都可以调用
+            super.c1.selfMethod1();
+            super.c2.selfMethod2();
+        }
+        public void doSomething2() {
+            super.c1.selfMethod1();
+            super.c2.selfMethod2();
+        }
+    }
+    ```
+- 抽象同事类
+    ```java
+    public abstract class Colleague {
+        protected Mediator mediator;
+        public Colleague(Mediator _mediator){
+            this.mediator = _mediator;
+        }
+    }
+    ```
+- 具体同事类
+    ```java
+    public class ConcreteColleague1 extends Colleague {
+        //通过构造函数传递中介者
+        public ConcreteColleague1(Mediator _mediator){
+            super(_mediator);
+        }
+        //自有方法 self-method
+        public void selfMethod1(){
+            //处理自己的业务逻辑
+        }
+        //依赖方法 dep-method
+        public void depMethod1(){
+            //处理自己的业务逻辑
+            //自己不能处理的业务逻辑， 委托给中介者处理
+            super.mediator.doSomething1();
+        }
+        }
+        public class ConcreteColleague2 extends Colleague {
+            //通过构造函数传递中介者
+            public ConcreteColleague2(Mediator _mediator){
+            super(_mediator);
+        }
+        //自有方法 self-method
+        public void selfMethod2(){
+            //处理自己的业务逻辑
+        }
+        //依赖方法 dep-method
+        public void depMethod2(){
+            //处理自己的业务逻辑
+            //自己不能处理的业务逻辑， 委托给中介者处理
+            super.mediator.doSomething2();
+        }
+    }
+    ```
+
+##### 中介者模式的优点
+- 中介者模式的优点就是减少类间的依赖，把原有的一对多的依赖变成了一对一的依赖，同事类只依赖中介者，减少了依赖，当然同时也降低了类间的耦合。
+
+##### 中介者模式的缺点
+- 中介者模式的缺点就是中介者会膨胀得很大，而且逻辑复杂，原本N个对象直接的相互依赖关系转换为中介者和同事类的依赖关系，同事类越多，中介者的逻辑就越复杂。
+
+##### 中介者模式的使用场景
+- 中介者模式适用于多个对象之间紧密耦合的情况，紧密耦合的标准是：在类图中出现了蜘蛛网状结构。
+- 在这种情况下一定要考虑使用中介者模式，这有利于把蜘蛛网梳理为星型结构，使原本复杂混乱的关系变得清晰简单。
+
+##### 中介者模式的实际应用
+- 机场调度中心
+- MVC框架
+- 媒体网关
+- 中介服务
+
+##### 最佳实践
+- 如果两个对象不能提炼出共性，那就不要刻意去追求两者的抽象，抽象只要定义出模式需要的角色即可。
+- 一个中介者抽象类一般只有一个实现者，对于中介者来说，抽象已经没有太多的必要。
+- N个对象之间产生了相互的依赖关系（N＞2）。
+- 多个对象有依赖关系，但是依赖的行为尚不确定或者有发生改变的可能，在这种情况下一般建议采用中介者模式，降低变更引起的风险扩散。
+- 产品开发。一个明显的例子就是MVC框架，把中介者模式应用到产品中，可以提升产品的性能和扩展性，但是对于项目开发就未必，因为项目是以交付投产为目标，而产品则是以稳定、高效、扩展为宗旨。
 
 
 #### 命令模式

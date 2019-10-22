@@ -38,7 +38,7 @@ tags:
 单例模式（Singleton Pattern） 是一个比较简单的模式
 ##### 定义
 - Ensure a class has only one instance, and provide a global point of access to it.
-- （确保某一个类只有一个实例，而且自行实例化并向整个系统提供这个实例。）
+- 确保某一个类只有一个实例，而且自行实例化并向整个系统提供这个实例。
 
 ##### 通用源码
 - 饿汉式单例
@@ -119,7 +119,7 @@ tags:
 #### 工厂方法模式
 ##### 定义
 - Define an interface for creating an object,but let subclasses decide which class to instantiate.Factory Method lets a class defer instantiation to subclasses.
-- （定义一个用于创建对象的接口，让子类决定实例化哪一个类。工厂方法使一个类的实例化延迟到其子类。）
+- 定义一个用于创建对象的接口，让子类决定实例化哪一个类。工厂方法使一个类的实例化延迟到其子类。
 
 ##### 通用源码
 - 抽象产品类
@@ -648,9 +648,145 @@ tags:
 
 
 #### 命令模式
+命令模式是一个高内聚的模式
+##### 定义
+- Encapsulate a request as an object,thereby letting you parameterize clients with different requests,queue or log requests,and support undoable operations.
+- 将一个请求封装成一个对象，从而让你使用不同的请求把客户端参数化，对请求排队或者记录请求日志，可以提供命令的撤销和恢复功能。
+
+##### 命令模式的通用类图
+- Receive接收者角色
+    - 该角色就是干活的角色，命令传递到这里是应该被执行的
+- Command命令角色
+    - 需要执行的所有命令都在这里声明。
+- Invoker调用者角色
+    - 接收到命令，并执行命令。
+
+##### 通用代码
+- 通用Receiver类
+    ```java
+    public abstract class Receiver {
+        //抽象接收者， 定义每个接收者都必须完成的业务
+        public abstract void doSomething();
+    }
+    ```
+- 具体的Receiver类
+    ```java
+    public class ConcreteReciver1 extends Receiver{
+        //每个接收者都必须处理一定的业务逻辑
+        public void doSomething(){
+        }
+    }
+    public class ConcreteReciver2 extends Receiver{
+        //每个接收者都必须处理一定的业务逻辑
+        public void doSomething(){
+        }
+    }
+    ```
+- 抽象的Command类
+    ```java
+    public abstract class Command {
+      //定义一个子类的全局共享变量
+      protected final Receiver receiver;
+    
+      //实现类必须定义一个接收者
+      public Command(Receiver _receiver){
+          this.receiver = _receiver;
+      }
+    
+      //每个命令类都必须有一个执行命令的方法
+      public abstract void execute();
+    }
+    ```
+- 具体的Command类
+    ```java
+    public class ConcreteCommand1 extends Command {
+        //声明自己的默认接收者
+        public ConcreteCommand1(){
+          super(new ConcreteReciver1());
+        }
+      
+        //设置新的接收者
+        public ConcreteCommand1(Receiver _receiver){
+          super(_receiver);
+        }
+      
+        //每个具体的命令都必须实现一个命令
+        public void execute() {
+            //业务处理
+            super.receiver.doSomething();
+        }
+    }
+  
+    public class ConcreteCommand2 extends Command {
+        //声明自己的默认接收者
+        public ConcreteCommand2(){
+          super(new ConcreteReciver2());
+        }
+      
+        //设置新的接收者
+        public ConcreteCommand2(Receiver _receiver){
+          super(_receiver);
+        }
+      
+        //每个具体的命令都必须实现一个命令
+        public void execute() {
+            //业务处理
+            super.receiver.doSomething();
+        }
+    }
+    ```
+- 调用者Invoker类
+    ```java
+    public class Invoker {
+        private Command command;
+        //受气包， 接受命令
+        public void setCommand(Command _command){
+          this.command = _command;
+        }
+        //执行命令
+        public void action(){
+          this.command.execute();
+        }
+    }
+    ```
+- 场景类
+    ```java
+    public class Client {
+        public static void main(String[] args) {
+            //首先声明调用者Invoker
+            Invoker invoker = new Invoker();
+          
+            //定义一个发送给接收者的命令
+            Command command = new ConcreteCommand1();
+          
+            //把命令交给调用者去执行
+            invoker.setCommand(command);
+            invoker.action();
+        }
+    }
+    ```
+
+##### 命令模式的优点
+- 类间解耦
+    - 调用者角色与接收者角色之间没有任何依赖关系，调用者实现功能时只需调用Command抽象类的execute方法就可以，不需要了解到底是哪个接收者执行。
+- 可扩展性
+    - Command的子类可以非常容易地扩展，而调用者Invoker和高层次的模块Client不产生严重的代码耦合。
+- 命令模式结合其他模式会更优秀
+    - 命令模式可以结合责任链模式，实现命令族解析任务；结合模板方法模式，则可以减少Command子类的膨胀问题。
+    
+##### 命令模式的缺点
+- 命令模式也是有缺点的，请看Command的子类：如果有N个命令，问题就出来了，Command的子类就可不是几个，而是N个，这个类膨胀得非常大，这个就需要读者在项目中慎重考虑使用。
+
+##### 命令模式的使用场景
+- 只要你认为是命令的地方就可以采用命令模式
 
 
 #### 责任链模式
+##### 定义
+- Avoid coupling the sender of a request to its receiver by giving more than one object a chance to handle the request.Chain the receiving objects and pass the request along the chain until an object handles it.
+- 使多个对象都有机会处理请求，从而避免了请求的发送者和接受者之间的耦合关系。将这些对象连成一条链，并沿着这条链传递该请求，直到有对象处理它为止。
+
+
 
 
 #### 装饰模式

@@ -148,14 +148,11 @@ featured-condition-size: 1     # A tag will be featured if the size of it is mor
 ```yaml
 # Friends
 friends: [
-    {
-        title: "Will Wang Blog",
-        href: "https://flyingwzb.github.io/"
-    },
-    {
-        title: "Apple",
-        href: "https://apple.com/"
-    }
+  {title: "书舟网",href: "http://kindle.archiew.top/"},
+  {title: "阮一峰",href: "http://www.ruanyifeng.com/home.html"},
+  {title: "阿里巴巴",href: "https://www.alibabagroup.com/cn/global/home"},
+  {title: "腾讯",href: "https://www.tencent.com/zh-cn/index.html"},
+  {title: "字节跳动",href: "https://www.bytedance.com/zh"}
 ]
 ```
 

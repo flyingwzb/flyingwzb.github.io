@@ -367,99 +367,6 @@ featured-condition-size: 1              # 相同标签数量大于这个数，�
 
 但相信很多小白都一脸懵逼，那我们继续👇。
 
-# 利用GithHub Desktop管理GitHub仓库
-
-[GithHub Desktop](https://desktop.github.com/) 是 **GithHub** 推出的一款管理GitHub仓库的桌面软件，换句话说就是将你在**Github**上的文件同步到本地电脑上，并将修改后的文件同步到**Github**远程仓库。
-
-#### 下载
-
-点击图片进入下载页面，选择对应的平台进行下载
-[![](http://upload-images.jianshu.io/upload_images/2178672-6022ba3938b3088e.jpg?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240)](https://desktop.github.com/)
-
-下面以**Mac**平台为例：
-
-#### 安装
-
-将下载好的文件解压，将这只小猫拖到应用程序文件夹中
-![](http://upload-images.jianshu.io/upload_images/2178672-8f8c27f4e5c72276.jpg?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240)
-
-就可以在**Launchpad**找到这只小猫咪~
-![](http://upload-images.jianshu.io/upload_images/2178672-0f2da4717361459c.jpg?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240)
-
-#### 登录
-
-点开应用,会弹出**登录**框，
-![](http://upload-images.jianshu.io/upload_images/2178672-adb7d6824e471ef5.jpg?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240)
-
-输入你的**GitHub**账号和密码进行登录
-![](http://upload-images.jianshu.io/upload_images/2178672-2d7c407ebddbb44f.jpg?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240)
-
-登录后关闭窗口
-![](http://upload-images.jianshu.io/upload_images/2178672-93cdccc42024914b.jpg?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240)
-
-然后返回引导窗，一直按 **Continue** 继续
-![](http://upload-images.jianshu.io/upload_images/2178672-450ccef6b1ab7b0a.jpg?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240)
-
-**Continue**
-![](http://upload-images.jianshu.io/upload_images/2178672-06b6e6792472ecae.jpg?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240)
-
-还是**Continue**~
-![](http://upload-images.jianshu.io/upload_images/2178672-681a6c455f6b512f.jpg?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240)
-
-进入主界面，先 **右键Remve** 删除这个用户指导，贼烦~
-![](http://upload-images.jianshu.io/upload_images/2178672-604f6f23b8fab6f3.jpg?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240)
-
-#### 克隆仓库
-
-选择你的仓库克隆到本地
-
-![](http://upload-images.jianshu.io/upload_images/2178672-45ddcd27e2f858a1.jpg?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240)
-
-![](http://upload-images.jianshu.io/upload_images/2178672-625be1220fea36b6.jpg?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240)
-
-
-#### 管理仓库
-
-现在文件夹中打开
-![](http://upload-images.jianshu.io/upload_images/2178672-92c1616af56b501a.jpg?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240)
-
-打开后你会的发现文件结构和你在Github上的一模一样~
-![](http://upload-images.jianshu.io/upload_images/2178672-bf3580ae1cd9a29e.jpg?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240)
-
-你最先关心的可能是你的头像~在**img**文件夹中把替换我的头像就好了。
-![](http://upload-images.jianshu.io/upload_images/2178672-c9421d64538c3ba6.jpg?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240)
-
-不仅是图片，所有在Github上的的操作都可以进行。
-
-#### 保存修改
-
-当你对仓库文件夹的文件下进行修改、添加或删除时，都可以在 **GitHub Desktop** 中看到
-
-例如我在 `img` 中添加了一张图片 `avatar-demo.png` 添加了一张图片
-
-就可以在看到**GitHub Desktop**显示了我的修改
-
-保存修改只要按 **Commit to master**，然后可以写上你的修改说明
-![](http://upload-images.jianshu.io/upload_images/2178672-4bfbfec37cbb8eb6.jpg?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240)
-
-#### 同步
-
-将修改同步到 **GitHub** 远程仓库上只需要一步：点击右上角的**同步按钮**
-![](http://upload-images.jianshu.io/upload_images/2178672-3c2ee8234a7f1832.jpg?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240)
-
-#### 完成
-
-打开你的GitHub上的仓库，你就可以看到已经和本地同步了
-
-可以看到你提交的详情： `add img` 
-![](http://upload-images.jianshu.io/upload_images/2178672-293bdd4cbee0e9e3.jpg?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240)
-
-这样，你已经能轻松管理自己的博客了。
-
-想上传头像，背景，或者是删掉你不要的图片（我的头像😏）已经是 so eazy了吧~
-
-#### 注意
-你在 **GitHub** 网站上进行 **Commit** 操作后，需要在**GitHub Desktop**上按一下 **同步按键** 才能同步网站上的修改到你的本地。
 
 # 修改个人介绍
 
@@ -496,8 +403,7 @@ featured-condition-size: 1              # 相同标签数量大于这个数，�
 
 # 其他
 
-最近有人往我的远程仓库不停的 **push**，一天连收几十封邮件！例如像这样的
-![](http://upload-images.jianshu.io/upload_images/2178672-1347f2cc9a4a8dc8.jpg?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240)
+最近有人往我的远程仓库不停的 **push**，一天连收几十封邮件！
 
 原因大多是直接Clone了我的仓库到本地，**没有删除我的远程仓库地址**，添加完自己的仓库地址后，一口气推送到所有远程仓库（包括我的😂）~
 
@@ -505,54 +411,6 @@ featured-condition-size: 1              # 相同标签数量大于这个数，�
 
 所以，**请不要往我的仓库上推送分支**！
 
-我发现一个问题是，很多人每次修改博客的内容都commit一次到远程仓库，然后再查看修改结果，这样效率非常低！
-
-#### 来，上车！
-
-## 在本地调试博客
-
-> 注：下面的操作是在 **Mac** 终端进行的。
-> **Windows** 环境下的配置请参考 [@梦幻之云](http://www.jianshu.com/u/a13e7484dc21) 提供的 [这篇文章](https://agcaiyun.cn/2017/09/10/%E6%90%AD%E5%BB%BA%E4%B8%AA%E4%BA%BA%E5%8D%9A%E5%AE%A2/)。
-
-有心的同学在 [jekyll官网](http://jekyllcn.com/) 就会发现 `jekyll` 的 提供的实例代码。
-
-```bash
-~ $ gem install jekyll bundler
-~ $ jekyll new my-awesome-site
-~ $ cd my-awesome-site
-~/my-awesome-site $ bundle install
-~/my-awesome-site $ bundle exec jekyll serve
-
-# => 打开浏览器 http://localhost:4000
-```
-
-这段命令创建了一个默认的 `jekll` 网站，然后在本机的 4000 窗口展示。聪明的你应该发现怎么做了吧~
-
-安装 `jekyll`和 `jekyll bundler`
-
-```bash
-$ gem install jekyll
-$ gem install jekyll bundler
-```
-
-进入你的 **Blog 所在目录**，然后创建本地服务器
-
-```bash
-$ jekyll s
-```
-
-然后会显示 
-
-```
- Auto-regeneration: enabled for '/Users/baiying/Blog'
-Configuration file: /Users/baiying/Blog/_config.yml
-    Server address: http://127.0.0.1:4000/
-  Server running... press ctrl-c to stop.
-```
-
-你就可以在 <http://127.0.0.1:4000/> 看到你的博客，你对本地博客的修改都会在这个地址进行显示，这大大提高了对博客的配置效率。
-
-使用`ctrl+c`就可以停止 **serve**
 
 # Star
 
@@ -590,7 +448,7 @@ Configuration file: /Users/baiying/Blog/_config.yml
 
 #### 如何在博客文章中上插入图片
 
-博客的文章用的是 MarkDown 格式，如果没用过 MarkDown 真的 强烈推荐 [花半个小时学习一下](https://flyingwzb.github.io/2018/01/05/Markdown%E4%BD%BF%E7%94%A8/)。
+博客的文章用的是 MarkDown 格式，如果没用过 MarkDown 真的 强烈推荐 [花半个小时学习一下](https://flyingwzb.github.io/2018/01/05/use-markdown/)。
 
 MarkDown 中添加图片的形式是 :`![](图片的URL)`
 
@@ -605,31 +463,17 @@ MarkDown 中添加图片的形式是 :`![](图片的URL)`
 所以，要在 MacDown 中插入图片，这张图片就需要上传到图床（网上），然后在引
 用这张图片的URL。
 
-##### 将图片上传到图床
-
-Mac 上的图床神器：iPic  
-
-直接在App Store上下载，谁用谁知道！
-
-使用方法很简单，直接拖动图片到 P 图标上，或者选中图片按快捷键 `⌘+U`，就能请示上传。
-
-上传成功就能直接粘贴图片的URL。
-![iPic](http://upload-images.jianshu.io/upload_images/2178672-7399aeaced6f1e29.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240)
-
-用 iPic 上传图片后，获取URL插入文章中就可以了。
-![iPic上传图片](http://upload-images.jianshu.io/upload_images/2178672-4be76fb02708de5e.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240)
 
 #### 推荐几个好用软件
 
 ##### MarkDown编辑器
 
-[MacDown](https://macdown.uranusjr.com/)：可能是Mac上最好的MacDown编辑器了  
+[https://www.typora.io/](https://www.typora.io/)：简洁明了的查看文件，文件的编辑可以利用IDEA来操作，阅览约束可以使用此开源编辑器（支持傻白甜操作）
 
-![](http://upload-images.jianshu.io/upload_images/2178672-2226239a63278302.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240)
+![](https://www.typora.io/img/new/inline.png)
 
 ##### 图片压缩工具
-
-[ImageOptim](https://imageoptim.com/)
+- [https://tinypng.com/](https://tinypng.com/)
 
 对于我们的博客来说，图片越大，加载速度越慢。
 
@@ -640,7 +484,7 @@ Mac 上的图床神器：iPic
 对博客中的所有图片进行压缩：
 
 看看压缩结果，最高的一张压缩了78.7%，这简直是太可怕了！
-![ImageOptim压缩图片](http://upload-images.jianshu.io/upload_images/2178672-0f8e643fa1da8674.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240)
+![https://tinypng.com/](https://github.com/flyingwzb/flyingwzb.github.io/blob/master/img/blog/blog-025.png?raw=true)
 
 好了，现在个人博客的加载速度估计要起飞了~
 

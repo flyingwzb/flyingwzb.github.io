@@ -69,7 +69,7 @@ https://github.com/kitian616/jekyll-TeXt-theme
                     <div class="post-preview item" data-tags="{{ _tags }}">
                         <a href="{{ _article.url | prepend: site.baseurl }}">
                             <h2 class="post-title">
-                                {{ _article.title }}
+                                {{ _article.title }} <a>{{ page.date | date: "%B %-d, %Y" }}</a>
                             </h2>
                             {% if _article.subtitle %}
                             <h3 class="post-subtitle">

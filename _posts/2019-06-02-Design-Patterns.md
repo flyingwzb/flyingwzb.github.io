@@ -34,7 +34,7 @@ tags:
 - [享元模式](#享元模式)
 - [桥梁模式](#桥梁模式)
 
-#### 单例模式
+### 单例模式
 单例模式（Singleton Pattern） 是一个比较简单的模式
 ##### 定义
 - Ensure a class has only one instance, and provide a global point of access to it.
@@ -116,7 +116,7 @@ tags:
     ```
 
 
-#### 工厂方法模式
+### 工厂方法模式
 ##### 定义
 - Define an interface for creating an object,but let subclasses decide which class to instantiate.Factory Method lets a class defer instantiation to subclasses.
 - 定义一个用于创建对象的接口，让子类决定实例化哪一个类。工厂方法使一个类的实例化延迟到其子类。
@@ -203,7 +203,7 @@ tags:
 - 一个对象被消费完毕后，并不立刻释放，工厂类保持其初始状态，等待再次被使用。
 
 
-#### 抽象工厂模式
+### 抽象工厂模式
 抽象工厂模式（Abstract Factory Pattern） 是一种比较常用的模式
 ##### 定义
 - Provide an interface for creating families of related or dependent objects without specifying their concrete classes.
@@ -306,7 +306,7 @@ tags:
 - 抽象工厂模式的使用场景定义非常简单：一个对象族（或是一组没有任何关系的对象）都有相同的约束，则可以使用抽象工厂模式。
 
 
-#### 模板方法模式
+### 模板方法模式
 模板方法模式（Template Method Pattern）是如此简单，以致让你感觉你已经能够掌握其精髓了。
 ##### 定义
 - Define the skeleton of an algorithm in an operation,deferring some steps to subclasses. Template Method lets subclasses redefine certain steps of an algorithm without changing the algorithm's structure.
@@ -380,7 +380,7 @@ tags:
 1. 重构时，模板方法模式是一个经常使用的模式，把相同的代码抽取到父类中，然后通过钩子函数（见“模板方法模式的扩展”）约束其行为。
 
 
-#### 建造者模式
+### 建造者模式
 建造者模式（Builder Pattern）也叫做生成器模式
 ##### 定义
 - Separate the construction of a complex object from its representation so that the same construction process can create different representations.
@@ -466,7 +466,7 @@ tags:
 - 而工厂方法则重点是创建，创建零件是它的主要职责，组装顺序则不是它关心的。
 
 
-#### 代理模式
+### 代理模式
 代理模式（Proxy Pattern） 是一个使用率非常高的模式
 ##### 定义
 - Provide a surrogate or placeholder for another object to control access to it.
@@ -495,7 +495,7 @@ tags:
     - 要实现动态代理的首要条件是：被代理类必须实现一个接口
 
 
-#### 原型模式
+### 原型模式
 原型模式（Prototype Pattern）的简单程度仅次于单例模式和迭代器模式。
 ##### 定义
 - Specify the kinds of objects to create using a prototypical instance,and create new objects by copying this prototype.
@@ -523,7 +523,7 @@ tags:
     - 要使用clone方法，类的成员变量上不要增加final关键字。
     
 
-#### 中介者模式
+### 中介者模式
 ##### 定义
 - Define an object that encapsulates how a set of objects interact. Mediator promotes loose coupling by keeping objects from referring to each other explicitly,and it lets you vary their interaction independently.
 - 用一个中介对象封装一系列的对象交互，中介者使各对象不需要显示地相互作用，从而使其耦合松散，而且可以独立地改变它们之间的交互。
@@ -647,7 +647,7 @@ tags:
 - 产品开发。一个明显的例子就是MVC框架，把中介者模式应用到产品中，可以提升产品的性能和扩展性，但是对于项目开发就未必，因为项目是以交付投产为目标，而产品则是以稳定、高效、扩展为宗旨。
 
 
-#### 命令模式
+### 命令模式
 命令模式是一个高内聚的模式
 ##### 定义
 - Encapsulate a request as an object,thereby letting you parameterize clients with different requests,queue or log requests,and support undoable operations.
@@ -781,7 +781,7 @@ tags:
 - 只要你认为是命令的地方就可以采用命令模式
 
 
-#### 责任链模式
+### 责任链模式
 ##### 定义
 - Avoid coupling the sender of a request to its receiver by giving more than one object a chance to handle the request.Chain the receiving objects and pass the request along the chain until an object handles it.
 - 使多个对象都有机会处理请求，从而避免了请求的发送者和接受者之间的耦合关系。将这些对象连成一条链，并沿着这条链传递该请求，直到有对象处理它为止。
@@ -908,40 +908,144 @@ tags:
 - 链中节点数量需要控制，避免出现超长链的情况，一般的做法是在Handler中设置一个最大节点数量，在setNext方法中判断是否已经是超过其阈值，超过则不允许该链建立，避免无意识地破坏系统性能。
 
 
-#### 装饰模式
+### 装饰模式
+装饰模式（Decorator Pattern） 是一种比较常见的模式
+##### 定义
+- Attach additional responsibilities to an object dynamically keeping the same interface.Decorators provide a flexible alternative to subclassing for extending functionality.
+- 动态地给一个对象添加一些额外的职责。就增加功能来说，装饰模式相比生成子类更为灵活。
+
+##### 通用类图
+- Component抽象构件
+    - Component是一个接口或者是抽象类，就是定义我们最核心的对象，也就是最原始的对象
+    - 在装饰模式中，必然有一个最基本、最核心、最原始的接口或抽象类充当Component抽象构件。
+    - ```java
+      public abstract class Component {
+          //抽象的方法
+          public abstract void operate();
+      }
+      ```
+- ConcreteComponent具体构件
+    - ConcreteComponent是最核心、最原始、最基本的接口或抽象类的实现，你要装饰的就是它。
+    - ```java
+      public class ConcreteComponent extends Component {
+          //具体实现
+          @Override
+          public void operate() {
+              System.out.println("do Something");
+          }
+      }
+      ```
+- Decorator装饰角色
+    - 一般是一个抽象类，做什么用呢？实现接口或者抽象方法，它里面可不一定有抽象的方法呀，在它的属性里必然有一个private变量指向Component抽象构件。
+    - ```java
+      public abstract class Decorator extends Component {
+          private Component component = null;
+          //通过构造函数传递被修饰者
+          public Decorator(Component _component){
+              this.component = _component;
+          }
+          //委托给被修饰者执行
+          @Override
+          public void operate() {
+              this.component.operate();
+          }
+      }
+      ```
+- 具体装饰角色
+    - ConcreteDecoratorA和ConcreteDecoratorB是两个具体的装饰类，你要把你最核心的、最原始的、最基本的东西装饰成其他东西。
+    - ```java
+      public class ConcreteDecorator1 extends Decorator {
+          //定义被修饰者
+          public ConcreteDecorator1(Component _component){
+              super(_component);
+          }
+          //定义自己的修饰方法
+          private void method1(){
+              System.out.println("method1 修饰");
+          }
+          //重写父类的Operation方法
+          public void operate(){
+              this.method1();
+              super.operate();
+          }
+      }
+      
+      
+      public class ConcreteDecorator2 extends Decorator {
+          //定义被修饰者
+          public ConcreteDecorator2(Component _component){
+              super(_component);
+          }
+          //定义自己的修饰方法
+          private void method2(){
+              System.out.println("method2修饰");
+          }
+          //重写父类的Operation方法
+          public void operate(){
+              super.operate();
+              this.method2();
+          }
+      }
+      ```
+  
+##### 装饰模式的优点
+- 装饰类和被装饰类可以独立发展，而不会相互耦合。换句话说，Component类无须知道Decorator类，Decorator类是从外部来扩展Component类的功能，而Decorator也不用知道具体的构件。
+- 装饰模式是继承关系的一个替代方案。我们看装饰类Decorator，不管装饰多少层，返回的对象还是Component，实现的还是is-a的关系。
+- 装饰模式可以动态地扩展一个实现类的功能，这不需要多说，装饰模式的定义就此。
+
+##### 装饰模式的缺点
+- 多层的装饰是比较复杂的。
+- 尽量减少装饰类的数量，以便降低系统的复杂度。
+
+##### 装饰模式的使用场景
+- 需要扩展一个类的功能，或给一个类增加附加功能。
+- 需要动态地给一个对象增加功能，这些功能可以再动态地撤销。
+- 需要为一批的兄弟类进行改装或加装功能，当然是首选装饰模式。
 
 
-#### 策略模式
+### 策略模式
+策略模式（Strategy Pattern）是一种比较简单的模式，也叫做政策模式（Policy Pattern）
+##### 定义
+- Define a family of algorithms,encapsulate each one,and make them interchangeable.
+- 定义一组算法，将每个算法都封装起来，并且使它们之间可以互换。
+
+##### 通用类图
+- Context封装角色
+    - 它也叫做上下文角色，起承上启下封装作用，屏蔽高层模块对策略、算法的直接访问，封装可能存在的变化。
+- Strategy抽象策略角色
+    - 策略、算法家族的抽象，通常为接口，定义每个策略或算法必须具有的方法和属性。
+- ConcreteStrategy具体策略角色
+    - 实现抽象策略中的操作，该类含有具体的算法。
 
 
-#### 适配器模式
+### 适配器模式
 
 
-#### 迭代器模式
+### 迭代器模式
 
 
-#### 组合模式
+### 组合模式
 
 
-#### 观察者模式
+### 观察者模式
 
 
-#### 门面模式
+### 门面模式
 
 
-#### 备忘录模式
+### 备忘录模式
 
 
-#### 访问者模式
+### 访问者模式
 
 
-#### 状态模式
+### 状态模式
 
 
-#### 解释器模式
+### 解释器模式
 
 
-#### 享元模式
+### 享元模式
 
 
-#### 桥梁模式
+### 桥梁模式

@@ -31,9 +31,11 @@
 	* [推荐标签](#featured-tags)
 	* [好友链接](#friends)
 	* [HTML5 演示文档布局](#keynote-layout)
-* 评论与 Google/Baidu Analytics
+* 网站统计与打赏
 	* [评论](#comment)
 	* [网站分析](#analytics) 
+	* [统计网站PV与UV](#统计网站PV与UV)
+	* [JS实现文章打赏功能](#JS实现文章打赏功能)
 * 高级部分
 	* [自定义](#customization)
 	* [标题底图](#header-image)
@@ -216,16 +218,16 @@ disqus_username: flyingwzb
 
 网站分析，现在支持百度统计和Google Analytics。需要去官方网站注册一下，然后将返回的code贴在下面：
 
-```
+```yaml
 # Baidu Analytics
 ba_track_id: 4cc1f2d8f3067386cc5cdb626a202900
 
 # Google Analytics
 ga_track_id: 'UA-49627206-1'            # 你用Google账号去注册一个就会给你一个这样的id
-ga_domain: huangxuan.me			# 默认的是 auto, 这里我是自定义了的域名，你如果没有自己的域名，需要改成auto。
+ga_domain: auto			# 默认的是 auto, 这里我是自定义了的域名，你如果没有自己的域名，需要改成auto。
 ```
 
-### 统计网站PV、UV
+### 统计网站PV与UV
 
 新增网站访问量的PV、UV统计，采用[不蒜子](http://ibruce.info/2015/04/04/busuanzi/)提供的js，动态引入即可实现统计功能。
 

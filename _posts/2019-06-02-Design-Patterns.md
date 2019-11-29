@@ -1091,13 +1091,183 @@ tags:
 
 
 ### 适配器模式
+适配器模式（Adapter Pattern），适配器模式又叫做变压器模式，也叫做包装模式（Wrapper） 
+##### 定义
+- Convert the interface of a class into another interface clients expect.Adapter lets classes work together that couldn't otherwise because of incompatible interfaces.
+- 将一个类的接口变换成客户端所期待的另一种接口，从而使原本因接口不匹配而无法在一起工作的两个类能够在一起工作。
 
+##### 适配器模式的三个角色
+- Target目标角色
+    - 该角色定义把其他类转换为何种接口，也就是我们的期望接口
+- Adaptee源角色
+    - 你想把谁转换成目标角色，这个“谁”就是源角色，它是已经存在的、运行良好的类或对象，经过适配器角色的包装，它会成为一个崭新、靓丽的角色。
+- Adapter适配器角色
+    - 适配器模式的核心角色，其他两个角色都是已经存在的角色，而适配器角色是需要新建立的，它的职责非常简单：把源角色转换为目标角色，怎么转换？通过继承或是类关联的方式。
+    
+##### 通用源码
+- 目标角色
+    ```java
+    public interface Target {
+        //目标角色有自己的方法
+        public void request();
+        }
+    ```
+- 目标角色的实现类
+    ```java
+    public class ConcreteTarget implements Target {
+        public void request() {
+          System.out.println("if you need any help,pls call me!"); }
+        }
+    ```
+- 源角色
+    ```java
+    public class Adaptee {
+        //原有的业务逻辑
+        public void doSomething(){
+          System.out.println("I'm kind of busy,leave me alone,pls!");
+        }
+    }
+    ```
+- 适配器角色
+    ```java
+    public class Adapter extends Adaptee implements Target {
+        public void request() {
+          super.doSomething();
+        }
+    }
+    ```
+- 场景类
+    ```java
+    public class Client {
+        public static void main(String[] args) {
+            //原有的业务逻辑
+            Target target = new ConcreteTarget();
+            target.request();
+            //现在增加了适配器角色后的业务逻辑
+            Target target2 = new Adapter();
+            target2.request();
+        }
+    }
+    ```
+
+##### 适配器模式的优点
+- 适配器模式可以让两个没有任何关系的类在一起运行，只要适配器这个角色能够搞定他们就成。
+- 增加了类的透明性
+- 提高了类的复用度
+- 灵活性非常好
+
+##### 适配器模式的使用场景
+- 你有动机修改一个已经投产中的接口时，适配器模式可能是最适合你的模式。比如系统扩展了，需要使用一个已有或新建立的类，但这个类又不符合系统的接口，怎么办？使用适配器模式，这也是我们例子中提到的。
+
+##### 适配器模式的注意事项
+- 适配器模式最好在详细设计阶段不要考虑它，它不是为了解决还处在开发阶段的问题，而是解决正在服役的项目问题，没有一个系统分析师会在做详细设计的时候考虑使用适配器模式，这个模式使用的主要场景是扩展应用中，就像我们上面的那个例子一样，系统扩展了，不符合原有设计的时候才考虑通过适配器模式减少代码修改带来的风险。
+- 再次提醒一点，项目一定要遵守依赖倒置原则和里氏替换原则，否则即使在适合使用适配器的场合下，也会带来非常大的改造。
 
 
 ### 迭代器模式
+- 迭代器模式（Iterator Pattern）目前已经是一个没落的模式，基本上没人会单独写一个迭代器，除非是产品性质的开发
+##### 定义
+- Provide a way to access the elements of an aggregate object sequentially without exposing its underlying representation.
+- 它提供一种方法访问一个容器对象中各个元素，而又不需暴露该对象的内部细节。 
+
+##### 通用类图
+- Iterator抽象迭代器
+    ```java
+    public interface Iterator {
+        //遍历到下一个元素
+        public Object next();
+        //是否已经遍历到尾部
+        public boolean hasNext();
+        //删除当前指向的元素
+        public boolean remove();
+    }
+    ```
+- ConcreteIterator具体迭代器
+    ```java
+    public class ConcreteIterator implements Iterator {
+        private Vector vector = new Vector();//定义当前游标
+        public int cursor = 0;
+        @SuppressWarnings("unchecked")
+        public ConcreteIterator(Vector _vector){
+          this.vector = _vector;
+        }
+        //判断是否到达尾部
+        public boolean hasNext() {
+            if(this.cursor == this.vector.size()){
+              return false;
+            }else{
+              return true;
+            }
+        }
+        //返回下一个元素
+        public Object next() {
+            Object result = null;
+            if(this.hasNext()){
+              result = this.vector.get(this.cursor++);
+            }else{
+              result = null;
+            }
+            return result;
+        }
+        //删除当前元素
+        public boolean remove() {
+            this.vector.remove(this.cursor);
+            return true;
+        }
+    }
+    ```
+- Aggregate抽象容器
+    ```java
+    public interface Aggregate {
+        //是容器必然有元素的增加
+        public void add(Object object);
+        //减少元素
+        public void remove(Object object);
+        //由迭代器来遍历所有的元素
+        public Iterator iterator();
+    }
+    ```
+- Concrete Aggregate具体容器
+    ```java
+    public class ConcreteAggregate implements Aggregate {
+        //容纳对象的容器
+        private Vector vector = new Vector();
+        //增加一个元素
+        public void add(Object object) {
+          this.vector.add(object);
+        }
+        //返回迭代器对象
+        public Iterator iterator() {
+          return new ConcreteIterator(this.vector);
+        }
+        //删除一个元素
+        public void remove(Object object) {
+          this.remove(object);
+        }
+    }
+    ```
+- 场景类
+```java
+public class Client {
+    public static void main(String[] args) {
+        //声明出容器
+        Aggregate agg = new ConcreteAggregate();
+        //产生对象数据放进去
+        agg.add("abc");
+        agg.add("aaa");
+        agg.add("1234");
+        //遍历一下
+        Iterator iterator = agg.iterator();
+        while(iterator.hasNext()){
+            System.out.println(iterator.next());
+        }
+    }
+}
+```
 
 
 ### 组合模式
+
 
 
 ### 观察者模式

@@ -1247,27 +1247,121 @@ tags:
     }
     ```
 - 场景类
-```java
-public class Client {
-    public static void main(String[] args) {
-        //声明出容器
-        Aggregate agg = new ConcreteAggregate();
-        //产生对象数据放进去
-        agg.add("abc");
-        agg.add("aaa");
-        agg.add("1234");
-        //遍历一下
-        Iterator iterator = agg.iterator();
-        while(iterator.hasNext()){
-            System.out.println(iterator.next());
+    ```java
+    public class Client {
+        public static void main(String[] args) {
+            //声明出容器
+            Aggregate agg = new ConcreteAggregate();
+            //产生对象数据放进去
+            agg.add("abc");
+            agg.add("aaa");
+            agg.add("1234");
+            //遍历一下
+            Iterator iterator = agg.iterator();
+            while(iterator.hasNext()){
+                System.out.println(iterator.next());
+            }
         }
     }
-}
-```
+    ```
 
 
 ### 组合模式
+组合模式(Composite Pattern)也叫合成模式，有时又叫做部分-整体模式（Part-Whole），主要是用来描述部分与整体的关系
 
+##### 定义
+- Compose objects into tree structures to represent part-whole hierarchies.Composite lets clients treat individual objects and compositions of objects uniformly.
+- 将对象组合成树形结构以表示“部分-整体”的层次结构，使得用户对单个对象和组合对象的使用具有一致性。
+
+##### 通用类图
+- Component抽象构件角色
+    - 定义参加组合对象的共有方法和属性，可以定义一些默认的行为或属性。
+- Leaf叶子构件
+    - 叶子对象，其下再也没有其他的分支，也就是遍历的最小单位。
+- Composite树枝构件
+    - 树枝对象，它的作用是组合树枝节点和叶子节点形成一个树形结构。
+    
+##### 通用源码
+- 抽象构件
+    ```java
+    public abstract class Component {
+        //个体和整体都具有的共享
+        public void doSomething(){
+          //编写业务逻辑
+        }
+    }
+    ```
+- 树枝构件
+    ```java
+    public class Composite extends Component {
+        //构件容器
+        private ArrayList<Component> componentArrayList = new ArrayList<Component>();
+        //增加一个叶子构件或树枝构件
+        public void add(Component component){
+          this.componentArrayList.add(component);
+        }
+        //删除一个叶子构件或树枝构件
+        public void remove(Component component){
+          this.componentArrayList.remove(component);
+        }
+        //获得分支下的所有叶子构件和树枝构件
+        public ArrayList<Component> getChildren(){
+          return this.componentArrayList;
+        }
+    }
+    ```
+- 树叶构件
+    ```java
+    public class Leaf extends Component {
+        /*
+        * 可以覆写父类方法
+        * public void doSomething(){
+        **
+        }
+        */
+    }
+    ```
+- 场景类
+    ```java
+    public class Client {
+        public static void main(String[] args) {
+            //创建一个根节点
+            Composite root = new Composite();
+            root.doSomething();
+            //创建一个树枝构件
+            Composite branch = new Composite();
+            //创建一个叶子节点
+            Leaf leaf = new Leaf();
+            //建立整体
+            root.add(branch);
+            branch.add(leaf);
+        }
+        //通过递归遍历树
+        public static void display(Composite root){
+            for(Component c:root.getChildren()){
+                if(c instanceof Leaf){ //叶子节点
+                  c.doSomething();
+                }else{ //树枝节点
+                  display((Composite)c);
+                }
+            }
+        }
+    }
+    ```
+
+##### 组合模式的优点
+- 高层模块调用简单
+- 节点自由增加
+
+##### 组合模式的缺点
+- 组合模式有一个非常明显的缺点，看到我们在场景类中的定义，提到树叶和树枝使用时的定义了吗？直接使用了实现类！这在面向接口编程上是很不恰当的，与依赖倒置原则冲突。
+
+##### 组合模式的使用场景
+- 维护和展示部分-整体关系的场景，如树形菜单、文件和文件夹管理。
+- 从一个整体中能够独立出部分模块或功能的场景。
+
+##### 组合模式的注意事项
+- 只要是树形结构，就要考虑使用组合模式，这个一定要记住，只要是要体现局部和整体的关系的时候，而且这种关系还可能比较深，考虑一下组合模式吧。
 
 
 ### 观察者模式

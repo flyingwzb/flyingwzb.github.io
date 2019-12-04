@@ -1365,6 +1365,72 @@ tags:
 
 
 ### 观察者模式
+观察者模式（Observer Pattern）也叫做发布订阅模式（Publish/subscribe）,它是一个在项目中经常使用的模式。
+
+##### 定义
+- Define a one-to-many dependency between objects so that when one object changes state,all its dependents are notified and updated automatically.
+- 定义对象间一种一对多的依赖关系，使得每当一个对象改变状态，则所有依赖于它的对象都会得到通知并被自动更新。
+
+##### 通用类图
+- Subject被观察者
+    - 定义被观察者必须实现的职责，它必须能够动态地增加、取消观察者。它一般是抽象类或者是实现类，仅仅完成作为被观察者必须实现的职责：管理观察者并通知观察者。
+- Observer观察者
+    - 观察者接收到消息后，即进行update（更新方法）操作，对接收到的信息进行处理。
+- ConcreteSubject具体的被观察者
+    - 定义被观察者自己的业务逻辑，同时定义对哪些事件进行通知。
+- ConcreteObserver具体的观察者
+    - 每个观察在接收到消息后的处理反应是不同，各个观察者有自己的处理逻辑。
+
+##### 通用源码
+- 被观察者
+    ```java
+    public abstract class Subject {
+        //定义一个观察者数组
+        private Vector<Observer> obsVector = new Vector<Observer>();
+        //增加一个观察者
+        public void addObserver(Observer o){
+          this.obsVector.add(o);
+        }
+        //删除一个观察者
+        public void delObserver(Observer o){
+          this.obsVector.remove(o);
+        }
+        //通知所有观察者
+        public void notifyObservers(){
+            for(Observer o:this.obsVector){
+              o.update();
+            }
+        }
+    }
+    ```
+- 具体被观察者
+    ```java
+    public class ConcreteSubject extends Subject {
+        //具体的业务
+        public void doSomething(){
+            /*
+            * do something
+            */
+            super.notifyObservers();
+        }
+    }
+    ```
+- 观察者
+    ```java
+    public interface Observer {
+      //更新方法
+      public void update();
+    }
+    ```
+- 具体观察者
+    ```java
+    public class ConcreteObserver implements Observer {
+        //实现更新方法
+        public void update() {
+          System.out.println("接收到信息， 并进行处理！ ");
+        }
+    }
+    ```
 
 
 ### 门面模式

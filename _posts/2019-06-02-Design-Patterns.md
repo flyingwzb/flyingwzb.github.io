@@ -1431,9 +1431,33 @@ tags:
         }
     }
     ```
+- 场景类
+    ```java
+    public class Client {
+        public static void main(String[] args) {
+            //创建一个被观察者
+            ConcreteSubject subject = new ConcreteSubject();
+            //定义一个观察者
+            Observer obs= new ConcreteObserver();
+            //观察者观察被观察者
+            subject.addObserver(obs);
+            //观察者开始活动了
+            subject.doSomething();
+        }
+    }
+    ```
+##### 观察者模式的优点
+- 观察者和被观察者之间是抽象耦合
+- 建立一套触发机制
+
+##### 观察者模式的使用场景
+- 关联行为场景。需要注意的是，关联行为是可拆分的，而不是“组合”关系。
+- 事件多级触发场景。
+- 跨系统的消息交换场景，如消息队列的处理机制。
 
 
 ### 门面模式
+##### 
 
 
 ### 备忘录模式

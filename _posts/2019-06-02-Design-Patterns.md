@@ -1457,10 +1457,114 @@ tags:
 
 
 ### 门面模式
-##### 
+门面模式（Facade Pattern）也叫做外观模式，是一种比较常用的封装模式
+
+##### 定义
+- Provide a unified interface to a set of interfaces in a subsystem.Facade defines a higher-level interface that makes the subsystem easier to use.
+- 要求一个子系统的外部与其内部的通信必须通过一个统一的对象进行。门面模式提供一个高层次的接口，使得子系统更易于使用。
+
+##### 门面模式的优点
+- 减少系统的相互依赖
+- 提高了灵活性
+- 提高安全性
+
+##### 门面模式的使用场景
+- 为一个复杂的模块或子系统提供一个供外界访问的接口
+- 子系统相对独立——外界对子系统的访问只要黑箱操作即可
+- 预防低水平人员带来的风险扩散
 
 
 ### 备忘录模式
+备忘录模式（Memento Pattern）提供了一种弥补真实世界缺陷的方法，让“后悔药”在程序的世界中真实可行
+##### 定义
+- Without violating encapsulation,capture and externalize an object's internal state so that the object can be restored to this state later.
+- 在不破坏封装性的前提下，捕获一个对象的内部状态，并在该对象之外保存这个状态。这样以后就可将该对象恢复到原先保存的状态。
+
+##### 通用类图
+- Originator发起人角色
+    - 记录当前时刻的内部状态，负责定义哪些属于备份范围的状态，负责创建和恢复备忘录数据。
+- Memento备忘录角色
+    - 负责存储Originator发起人对象的内部状态，在需要的时候提供发起人需要的内部状态。
+- Caretaker备忘录管理员角色
+    - 对备忘录进行管理、保存和提供备忘录。
+    
+##### 通用源码
+- 发起人角色
+    ```java
+    public class Originator {
+        //内部状态
+        private String state = "";
+        public String getState() {
+          return state;
+        }
+        public void setState(String state) {
+          this.state = state;
+        }
+        //创建一个备忘录
+        public Memento createMemento(){
+          return new Memento(this.state);
+        }
+        //恢复一个备忘录
+        public void restoreMemento(Memento _memento){
+          this.setState(_memento.getState());
+        }
+    }
+    ```
+- 备忘录角色
+    ```java
+    public class Memento {
+        //发起人的内部状态
+        private String state = "";
+        //构造函数传递参数
+        public Memento(String _state){
+          this.state = _state;
+        }
+        public String getState() {
+          return state;
+        }
+        public void setState(String state) {
+          this.state = state;
+        }
+    }
+    ```
+- 备忘录管理员角色
+    ```java
+    public class Caretaker {
+        //备忘录对象
+        private Memento memento;
+        public Memento getMemento() {
+          return memento;
+        }
+        public void setMemento(Memento memento) {
+          this.memento = memento;
+        }
+    }
+    ```
+- 场景类
+    ```java
+    public class Client {
+        public static void main(String[] args) {
+            //定义出发起人
+            Originator originator = new Originator();
+            //定义出备忘录管理员
+            Caretaker caretaker = new Caretaker();
+            //创建一个备忘录
+            caretaker.setMemento(originator.createMemento());
+            //恢复一个备忘录
+            originator.restoreMemento(caretaker.getMemento());
+        }
+    }
+    ```
+
+##### 备忘录模式的使用场景
+- 需要保存和恢复数据的相关状态场景。
+- 提供一个可回滚（rollback）的操作.
+- 需要监控的副本场景中。
+- 数据库连接的事务管理就是用的备忘录模式.
+
+##### 备忘录模式的注意事项
+- 备忘录的生命期
+- 备忘录的性能
 
 
 ### 访问者模式
